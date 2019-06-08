@@ -1,6 +1,25 @@
 const express = require('express')
-
+const mongoose = require('mongoose')
+const db = require('./config/keys').mongoURI
 const app = express()
+
+// Database configuration
+const connectDB = async () => {
+  try {
+    await mongoose.connect(db, {
+      useNewUrlParser: true,
+      useCreateIndex: true
+    })
+
+    console.log('MongoDB connected')
+  } catch (err) {
+    console.error(err.message)
+    // Exit process with failure
+    process.exit(1)
+  }
+}
+
+connectDB()
 
 app.get('/', (req, res) => res.send('API Running'))
 
