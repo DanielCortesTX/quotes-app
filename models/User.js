@@ -19,9 +19,14 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     default: Date.now
   },
-  quotesadded: {
-    
-  }
+  quotesadded: [
+    {
+      quote: {
+        type: Schema.Types.ObjectId,
+        ref: 'quotes'
+      }
+    }
+  ]
 })
 
 module.exports = User = mongoose.model('user', UserSchema)

@@ -6,10 +6,9 @@ const QuoteSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
-  addedBy: {
-    type: String,
-    required: true,
-    unique: true
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'users'
   },
   text: {
     type: String,
