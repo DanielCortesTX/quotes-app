@@ -23,7 +23,15 @@ const QuoteSchema = new mongoose.Schema({
   },
   bodyOfWork: {
     type: String
-  }
+  },
+  likes: [
+    {
+      user: {
+        type: Schema.Types.ObjectId,
+        ref: 'users'
+      }
+    }
+  ]
 })
 
 module.exports = Quote = mongoose.model('quote', QuoteSchema)
