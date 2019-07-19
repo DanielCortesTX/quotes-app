@@ -75,8 +75,16 @@ async (req, res) => {
     console.error(err.message)
     res.status(404).json({ nopostfound: 'No quote found'})
   }
-}
+})
 
-)
+// @route GET api/quotes
+// @desc get all posts
+// @access Public
+router.get('/', async (req, res) => {
+  Quote.find()
+    .sort({ date: -1})
+    .then(quotes => res.json(quotes))
+    .catch(err => res.status(404).json({ nopostfound: 'No quotes found'}))
+})
 
 module.exports = router
