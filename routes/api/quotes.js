@@ -49,4 +49,34 @@ async (req, res) => {
   }
 })
 
+// @route POST api/quotes/like/:id
+// @desc like/unlike post
+// @access Private
+router.post('/like/:id', [ auth ], 
+async (req, res) => {
+  try {
+    Quote.findById(req.params.id)
+      .then(quote => {
+        if(quote.likes.filter(like => like.user.toString() === req.user.id).length > 0){
+
+          // remove user from likes array
+          const removeIndex = quote.likes.map(like => like.user.toString()).indexOf(req.user.id)
+
+          quote.likes.splice(removeIndex, 1)
+          quote.save().then(quote => res.json(quote))
+        } else {
+          // add user to likes array
+          quote.likes.push({ user: req.user.id })
+
+          quote.save().then(quote => res.json(quote))
+        }
+      })
+  } catch (err) {
+    console.error(err.message)
+    res.status(404).json({ nopostfound: 'No quote found'})
+  }
+}
+
+)
+
 module.exports = router
