@@ -87,4 +87,13 @@ router.get('/', async (req, res) => {
     .catch(err => res.status(404).json({ nopostfound: 'No quotes found'}))
 })
 
+// @route  GET api/:author/posts
+// @desc   Gets all posts by a specific author
+// @access Public
+router.get('/quotes/:author', (req, res) => {
+  Quote.find({ author: req.params.author })
+    .then(quotes => res.json(quotes))
+    .catch(err => res.status(404).json({ quotes: 'No quotes found'}))
+})
+
 module.exports = router
