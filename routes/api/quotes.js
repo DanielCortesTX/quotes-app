@@ -99,8 +99,8 @@ router.get('/:author', (req, res) => {
 // @route  GET api/quotes/:user
 // @desc   Gets all quotes by a specific user
 // @access Public
-router.get('/quotes/:user', (req, res) => {
-  Quote.find({ user: req.params.author })
+router.get('/:user', (req, res) => {
+  Quote.find({ user: req.params.user })
     .then(quotes => res.json(quotes))
     .catch(err => res.status(404).json({ quotes: 'No quotes found'}))
 })
