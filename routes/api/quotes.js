@@ -78,7 +78,7 @@ async (req, res) => {
 })
 
 // @route GET api/quotes
-// @desc get all posts
+// @desc get all quotes
 // @access Public
 router.get('/', async (req, res) => {
   Quote.find()
@@ -87,11 +87,20 @@ router.get('/', async (req, res) => {
     .catch(err => res.status(404).json({ nopostfound: 'No quotes found'}))
 })
 
-// @route  GET api/:author/posts
-// @desc   Gets all posts by a specific author
+// @route  GET api/quotes/:author
+// @desc   Gets all quotes by a specific author
 // @access Public
-router.get('/quotes/:author', (req, res) => {
+router.get('/:author', (req, res) => {
   Quote.find({ author: req.params.author })
+    .then(quotes => res.json(quotes))
+    .catch(err => res.status(404).json({ quotes: 'No quotes found'}))
+})
+
+// @route  GET api/quotes/:user
+// @desc   Gets all quotes by a specific user
+// @access Public
+router.get('/quotes/:user', (req, res) => {
+  Quote.find({ user: req.params.author })
     .then(quotes => res.json(quotes))
     .catch(err => res.status(404).json({ quotes: 'No quotes found'}))
 })
