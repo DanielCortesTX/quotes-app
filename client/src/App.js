@@ -7,6 +7,7 @@ import Add from './components/Add'
 import Login from './components/Login'
 import Register from './components/Register'
 import UserPage from './components/UserPage'
+import Navbar from './components/Navbar'
 
 // import { Provider } from 'react-redux'
 
@@ -15,6 +16,7 @@ const App = () => {
     <div>
       <Router>
         <Fragment>
+          <Navbar />
           <section>
             <Switch>
               <Route exact path="/" component={Home}/>
