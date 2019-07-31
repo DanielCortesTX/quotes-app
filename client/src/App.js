@@ -9,6 +9,8 @@ import Register from './components/Register'
 import UserPage from './components/UserPage'
 import Navbar from './components/Navbar'
 
+import './styles/style.scss'
+
 // import { Provider } from 'react-redux'
 
 const App = () => {
