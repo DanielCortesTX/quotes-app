@@ -25,7 +25,7 @@ export const loadUser = () => async dispatch => {
     })
   } catch (err) {
     dispatch({
-      AUTH_ERROR
+      type: AUTH_ERROR
     })
   }
 }
@@ -54,7 +54,7 @@ async dispatch => {
     const errors = err.response.data.errors
 
     if(errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+      errors.forEach(error => console.log('oops'))
     }
     dispatch({
       type: REGISTER_FAIL
@@ -86,10 +86,12 @@ async dispatch => {
     const errors = err.response.data.errors
 
     if(errors) {
-      errors.forEach(error => dispatch(setAlert(error.msg, 'danger')))
+      errors.forEach(error => console.log('oops'))
     }
     dispatch({
       type: LOGIN_FAIL
     })
   }
 }
+
+// dispatch(setAlert(error.msg, 'danger'))
