@@ -4,31 +4,14 @@ import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   LOGIN_SUCCESS,
-  LOGIN_FAIL,
-  AUTH_ERROR
+  LOGIN_FAIL
 } from './types'
-import setAuthToken from '../utils/setAuthToken';
 
 // Load User
-export const loadUser = () => async dispatch => {
-  //Global Header
-  if(localStorage.token){
-    setAuthToken(localStorage.token)
-  }
-
-  try {
-    debugger
-    const res = await axios.get('/api/auth')
-    debugger
-
-    dispatch({
-      type: USER_LOADED,
-      payload: res.data
-    })
-  } catch (err) {
-    dispatch({
-      type: AUTH_ERROR
-    })
+export const loadUser = (decoded) => {
+  return {
+    type: USER_LOADED,
+    payload: decoded
   }
 }
 
