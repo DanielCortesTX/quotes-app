@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Home from './components/Home'
@@ -13,17 +13,20 @@ import { Provider } from 'react-redux'
 import store from './store'
 import { loadUser } from './actions/auth'
 import setAuthToken from './utils/setAuthToken'
-import jwt_decode from 'jwt-decode'
 
 import './styles/style.scss'
 
 if(localStorage.token){
   setAuthToken(localStorage.token)
-  const decoded = jwt_decode(localStorage.token)
-  store.dispatch(loadUser(decoded))
 }
 
 const App = () => {
+  // useEffect(() => {
+  //   store.dispatch(loadUser())
+  // }, [])
+  useEffect(() => {
+    store.dispatch(loadUser())
+  }, [])
 
   return (
     <Provider store={store}>
