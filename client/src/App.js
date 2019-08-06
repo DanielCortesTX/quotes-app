@@ -8,6 +8,7 @@ import Login from './components/Login'
 import Register from './components/Register'
 import UserPage from './components/UserPage'
 import Navbar from './components/Navbar'
+import PrivateRoute from './components/routing/PrivateRoute'
 
 import { Provider } from 'react-redux'
 import store from './store'
@@ -21,9 +22,6 @@ if(localStorage.token){
 }
 
 const App = () => {
-  // useEffect(() => {
-  //   store.dispatch(loadUser())
-  // }, [])
   useEffect(() => {
     store.dispatch(loadUser())
   }, [])
@@ -37,10 +35,12 @@ const App = () => {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/search" component={Search}/>
-              <Route exact path="/add" component={Add}/>
+              
               <Route exact path="/login" component={Login}/>
               <Route exact path="/register" component={Register}/>
               <Route exact path="/userpage" component={UserPage}/>
+              <PrivateRoute exact path="/add" component={Add}/>
+              
             </Switch>
           </section>
         </Fragment>
