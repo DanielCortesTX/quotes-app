@@ -18,9 +18,6 @@ class Navbar extends Component {
     const unlogged = (
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <Link className="nav-link" to="/add">Add</Link>
-        </li>
-        <li className="nav-item">
           <Link className="nav-link" to="/login">Login</Link>
         </li>
         <li className="nav-item">
@@ -45,9 +42,6 @@ class Navbar extends Component {
         </li>
         <li className="nav-item">
           <Link className="nav-link" to="/userpage">User page</Link>
-        </li>
-        <li>
-          <p>YOU ARE LOGGED IN</p>
         </li>
       </ul>
     )
