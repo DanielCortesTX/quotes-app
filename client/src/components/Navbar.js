@@ -2,15 +2,15 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-// import { logoutUser } from '../../actions/authActions'
+import { logout } from '../actions/auth'
 
 // @desc Navbar has different links depending on if user is logged in or is logged in as administrator
 
 class Navbar extends Component {
-  // onLogoutClick(e) {
-  //   e.preventDefault()
-  //   this.props.logoutUser()
-  // }
+  onLogoutClick(e) {
+    e.preventDefault()
+    this.props.logout()
+  }
 
   render() {
     const { isAuthenticated } = this.props.auth
@@ -43,6 +43,9 @@ class Navbar extends Component {
         <li className="nav-item">
           <Link className="nav-link" to="/userpage">User page</Link>
         </li>
+        <li>
+          <button onClick={this.onLogoutClick.bind(this)}>Logout</button>
+        </li>
       </ul>
     )
 
@@ -63,7 +66,7 @@ class Navbar extends Component {
 // {isAuthenticated ? loggedIn : unlogged}
 
 Navbar.propTypes = {
-  // logoutUser: PropTypes.func.isRequired,
+  logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired
 }
 
@@ -71,5 +74,5 @@ const mapStateToProps = ({auth}) => ({
   auth
 })
 
-export default connect(mapStateToProps)(Navbar)
+export default connect(mapStateToProps, { logout })(Navbar)
 // export default Navbar

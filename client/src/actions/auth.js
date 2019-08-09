@@ -5,7 +5,9 @@ import {
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
-  AUTH_ERROR
+  AUTH_ERROR,
+  CLEAR_USER,
+  LOGOUT
 } from './types'
 import setAuthToken from '../utils/setAuthToken'
 
@@ -91,6 +93,12 @@ async dispatch => {
       type: LOGIN_FAIL
     })
   }
+}
+
+// Logout / clear user
+export const logout = () => dispatch => {
+  dispatch({ type: CLEAR_USER })
+  dispatch({ type: LOGOUT })
 }
 
 // dispatch(setAlert(error.msg, 'danger'))
