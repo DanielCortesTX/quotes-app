@@ -38,8 +38,8 @@ const App = () => {
               
               <Route exact path="/login" component={Login}/>
               <Route exact path="/register" component={Register}/>
-              <Route exact path="/userpage" component={UserPage}/>
               <PrivateRoute exact path="/add" component={Add}/>
+              <PrivateRoute exact path="/userpage" component={UserPage}/>
               
             </Switch>
           </section>

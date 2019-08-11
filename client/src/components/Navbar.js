@@ -23,9 +23,6 @@ class Navbar extends Component {
         <li className="nav-item">
           <Link className="nav-link" to="/register">Register</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/userpage">User page</Link>
-        </li>
       </ul>
     )
 
