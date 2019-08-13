@@ -32,7 +32,7 @@ export const loadUser = () => async dispatch => {
 }
 
 // Register User
-export const register = ({ username, password }) =>
+export const register = (username, password) =>
 async dispatch => {
   const config = {
     headers: {
