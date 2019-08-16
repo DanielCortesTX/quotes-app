@@ -8,9 +8,10 @@ const auth = require('../../middleware/auth')
 
 const Quote = require('../../models/Quote')
 const User = require('../../models/User')
+const Author = require('../../models/Author')
 
 // @route POST api/quotes
-// @desc Create a post
+// @desc Create a quote
 // @access Private
 router.post('/', [auth,[
   check('text', 'Text is required')
@@ -31,6 +32,15 @@ async (req, res) => {
 
   try {
     const user = await User.findById(req.user.id).select('-password')
+    const authorSearch = await Author.find({ name: author })
+
+    // Add author????
+    if(!authorSearch){
+      const newAuthor = new Author({
+        name: author
+      })
+      const addAuthor = await newAuthor.save()
+    }
 
     const newQuote = new Quote({
       user: req.user.id,
@@ -42,7 +52,7 @@ async (req, res) => {
 
     const quote = await newQuote.save()
 
-    res.json(quote)
+    res.json(quote).then()
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
