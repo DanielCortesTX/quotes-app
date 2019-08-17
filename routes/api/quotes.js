@@ -34,14 +34,6 @@ async (req, res) => {
     const user = await User.findById(req.user.id).select('-password')
     const authorSearch = await Author.find({ name: author })
 
-    // Add author????
-    if(!authorSearch){
-      const newAuthor = new Author({
-        name: author
-      })
-      const addAuthor = await newAuthor.save()
-    }
-
     const newQuote = new Quote({
       user: req.user.id,
       text,
@@ -52,11 +44,25 @@ async (req, res) => {
 
     const quote = await newQuote.save()
 
-    res.json(quote).then()
+    res.json(quote)
+
   } catch (err) {
     console.error(err.message)
     res.status(500).send('Server Error')
   }
+})
+
+// @route GET api/quotes/authors
+// @desc get all authors
+// @access Public
+router.get('/authors', async (req,res) => {
+
+  Quote.find().then(quotes => {
+    let gather = quotes.map(quote => quote.author)
+    let filtered = gather.filter((item, index) => gather.indexOf(item) === index)
+    
+    res.json(filtered)
+  })
 })
 
 // @route POST api/quotes/like/:id
