@@ -13,6 +13,7 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import { Provider } from 'react-redux'
 import store from './store'
 import { loadUser } from './actions/auth'
+import { loadAuthors } from './actions/quotes'
 import setAuthToken from './utils/setAuthToken'
 
 import './styles/style.scss'
@@ -24,6 +25,7 @@ if(localStorage.token){
 const App = () => {
   useEffect(() => {
     store.dispatch(loadUser())
+    store.dispatch(loadAuthors())
   }, [])
 
   return (
