@@ -21,7 +21,7 @@ const Login = ({ login, isAuthenticated }) => {
   }
 
   if(isAuthenticated) {
-    return <Redirect to="/dashboard"/>
+    return <Redirect to="/add"/>
   }
 
   return (
@@ -50,7 +50,7 @@ const Login = ({ login, isAuthenticated }) => {
         <input type="submit" className="btn btn-danger" value="Login"/>      
       </form>
       <p>Haven't signed up yet? 
-        <Link to="/register">Sign In</Link></p>
+        <Link to="/register">Register</Link></p>
     </Fragment>
   )
 }

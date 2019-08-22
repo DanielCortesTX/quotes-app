@@ -21,7 +21,7 @@ const Register = ({register, isAuthenticated}) => {
   }
 
   if(isAuthenticated){
-    return <Redirect to="/dashboard"/>
+    return <Redirect to="/add"/>
   }
   return (
     <Fragment>
