@@ -41,7 +41,25 @@ const Add = () => {
             onChange={e => onChange(e)}
           />
         </div>
-        <input type="submit" className="btn btn-danger" value="Login"/>      
+        <div>
+          <input 
+            type="text"
+            placeholder="Date of Quote"
+            name="dateOfQuote"
+            value={dateOfQuote}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <div>
+          <input 
+            type="text"
+            placeholder="Body of Work"
+            name="bodyOfWork"
+            value={bodyOfWork}
+            onChange={e => onChange(e)}
+          />
+        </div>
+        <input type="submit" className="btn btn-success" value="Submit"/>      
       </form>
     </Fragment>
   )
