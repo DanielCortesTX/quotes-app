@@ -20,7 +20,7 @@ const QuoteSchema = new mongoose.Schema({
     default: Date.now
   },
   dateOfQuote: {
-    type: Date
+    type: String
   },
   bodyOfWork: {
     type: String
