@@ -11,3 +11,5 @@ export const REGISTER_FAIL = 'REGISTER_FAIL'
 export const AUTH_ERROR = 'AUTH_ERROR'
 
 export const LOAD_AUTHORS = 'LOAD_AUTHORS'
+
+export const ADD_QUOTE = 'ADD_QUOTE'

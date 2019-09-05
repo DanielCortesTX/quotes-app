@@ -1,9 +1,11 @@
 import {
-  LOAD_AUTHORS
+  LOAD_AUTHORS,
+  ADD_QUOTE
 } from '../actions/types'
 
 const initialState = {
   authors: null,
+  quotes: [],
   isLoaded: false
 }
 
@@ -15,6 +17,11 @@ export default function (state = initialState, action) {
       return {
         authors: payload,
         isLoaded: true
+      }
+    case ADD_QUOTE:
+      return {
+        ...state,
+        quotes: payload, ...state
       }
     default: return state  
   }
