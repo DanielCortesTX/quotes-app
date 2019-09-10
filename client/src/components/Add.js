@@ -1,7 +1,11 @@
 import React, { Fragment, useState} from 'react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect, withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 
-const Add = () => {
+import { addQuote } from '../actions/quotes'
+
+const Add = ({ quotes, addQuote, history }) => {
   const [formData, setFormData] = useState({
     'text': '',
     'author': '',
@@ -15,6 +19,9 @@ const Add = () => {
 
   const onSubmit = async e => {
     e.preventDefault()
+    addQuote(formData, history)
+
+    // <Redirect to="/"/>
 
     console.log(formData)
   }
@@ -65,4 +72,8 @@ const Add = () => {
   )
 }
 
-export default Add
+const mapStateToProps = ({ quotes }) => ({
+  quotes: quotes.quotes
+})
+
+export default connect(mapStateToProps, { addQuote })(withRouter(Add))

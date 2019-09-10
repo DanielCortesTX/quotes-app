@@ -63,7 +63,7 @@ async dispatch => {
   }
 }
 
-// Load User
+// Login User
 export const login = (username, password) => async dispatch => {
   const config = {
     headers: {

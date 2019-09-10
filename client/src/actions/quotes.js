@@ -14,6 +14,7 @@ export const loadAuthors = () => async dispatch => {
     type: LOAD_AUTHORS,
     payload: res.data
   })
+  
   console.log(res.data)
   } catch (err) {
     console.log(err)
@@ -21,14 +22,20 @@ export const loadAuthors = () => async dispatch => {
 }
 
 // New Quote
-export const addQuote = () => async dispatch => {
+export const addQuote = (formData, history) => async dispatch => {
   try {
-    const res = await axios.post('/api/quotes')
+    const config = {
+      headers: {
+        'content-Type': 'application/json'
+      }
+    }
+    const res = await axios.post('/api/quotes', formData, config)
 
     dispatch({
       type: ADD_QUOTE,
       payload: res.data
     })
+    history.push('/home')
     console.log(res.data)
   } catch (err) {
     console.log(err)
