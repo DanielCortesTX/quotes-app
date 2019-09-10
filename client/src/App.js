@@ -13,7 +13,7 @@ import PrivateRoute from './components/routing/PrivateRoute'
 import { Provider } from 'react-redux'
 import store from './store'
 import { loadUser } from './actions/auth'
-import { loadAuthors } from './actions/quotes'
+import { loadAuthors, loadQuotes } from './actions/quotes'
 import setAuthToken from './utils/setAuthToken'
 
 import './styles/style.scss'
@@ -26,6 +26,7 @@ const App = () => {
   useEffect(() => {
     store.dispatch(loadUser())
     store.dispatch(loadAuthors())
+    store.dispatch(loadQuotes())
   }, [])
 
   return (

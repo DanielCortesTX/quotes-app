@@ -13,3 +13,4 @@ export const AUTH_ERROR = 'AUTH_ERROR'
 export const LOAD_AUTHORS = 'LOAD_AUTHORS'
 
 export const ADD_QUOTE = 'ADD_QUOTE'
+export const LOAD_QUOTES = 'LOAD_QUOTES'

@@ -1,6 +1,7 @@
 import {
   LOAD_AUTHORS,
-  ADD_QUOTE
+  ADD_QUOTE,
+  LOAD_QUOTES
 } from '../actions/types'
 
 const initialState = {
@@ -23,6 +24,11 @@ export default function (state = initialState, action) {
         ...state,
         quotes: payload, ...state
       }
+    case LOAD_QUOTES:
+      return {
+        ...state,
+        quotes: payload
+      }  
     default: return state  
   }
 }

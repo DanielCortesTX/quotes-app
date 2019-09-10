@@ -1,7 +1,8 @@
 import axios from 'axios'
 import {
   LOAD_AUTHORS,
-  ADD_QUOTE
+  ADD_QUOTE,
+  LOAD_QUOTES
 } from './types'
 
 // load authors
@@ -16,6 +17,20 @@ export const loadAuthors = () => async dispatch => {
   })
   
   console.log(res.data)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+export const loadQuotes = () => async dispatch => {
+  try {
+    const res = await axios.get('/api/quotes')
+
+    dispatch({
+      type: LOAD_QUOTES,
+      payload: res.data
+    })
+    console.log(res.data)
   } catch (err) {
     console.log(err)
   }
