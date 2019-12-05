@@ -6,8 +6,6 @@ const keys = require('../../config/keys')
 const User = require('../../models/User')
 // const { check, validationResult } = require('express-validator/check')
 
-// const User = require('../../models/User')
-
 // @route POST api/users
 // @desc Register user
 // @access Public
@@ -32,6 +30,23 @@ router.post('/', async (req, res) => {
   } catch(err) {
     console.error(err.message)
     res.status(500).send('Server error')
+  }
+})
+
+// @route POST api/users
+// @desc Login a user
+// @access Public
+router.post('/login', async (req, res) => {
+  try {
+    const user = await User.findByCredentials(req.body.username, req.body.password)
+    const token = await user.generateAuthToken()
+
+    res.send({
+      user, token
+    })
+  } catch (e) {
+    console.log(e)
+    res.status(400).send()
   }
 })
 
