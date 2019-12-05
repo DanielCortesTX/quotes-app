@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const validator = require('validator')
+const bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+// const Schema = mongoose.Schema
 const secret = require('../config/keys').secretOrKey
 
 const UserSchema = new mongoose.Schema({
@@ -19,15 +22,13 @@ const UserSchema = new mongoose.Schema({
       }
     }
   },
-  date: {
-    type: String
-  }, 
   tokens: [{
     token: {
       type: String,
       required: true
     }
-  }],
+  }]
+}, {
   timestamps: true
 })
 
