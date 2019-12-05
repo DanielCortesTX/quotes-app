@@ -59,7 +59,7 @@ router.get('/me', auth, async (req, res) => {
 })
 
 // @route POST api/users/logout
-// @desc Logout
+// @desc Logout user
 // @access Private
 router.post('/logout', auth, async (req, res) => {
   try {
@@ -71,6 +71,19 @@ router.post('/logout', auth, async (req, res) => {
     res.send()
   } catch (e) {
     console.log(e)
+    res.status(500).send()
+  }
+})
+
+// @route DELETE api/users/me
+// @desc Delete logged in user
+// @access Private
+router.delete('/me', auth, async (req, res) => {
+  try {
+    await req.user.remove()
+
+    res.send(req.user)
+  } catch (e) {
     res.status(500).send()
   }
 })
