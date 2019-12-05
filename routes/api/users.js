@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const auth = require('../../middleware/auth')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys')
@@ -50,6 +51,12 @@ router.post('/login', async (req, res) => {
   }
 })
 
+// @route GET api/users/me
+// @desc Get logged in user
+// @access Private
+router.get('/me', auth, async (req, res) => {
+  res.send(req.user)
+})
 
 module.exports = router
 
