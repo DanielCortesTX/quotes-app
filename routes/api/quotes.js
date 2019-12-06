@@ -27,8 +27,21 @@ router.post('/', auth, async (req, res) => {
     res.status(201).send(quote)
   } catch (e) {
     console.error(e)
-    res.status(500).send('Server Error')
+    res.status(400).send(e)
   }
+})
+
+router.get('/mine', auth, async (req, res) => {
+  const match = {}
+  const sort = {}
+
+  try {
+    const quotes = await Quote.find({ owner: req.user._id})
+    res.send(quotes)  
+  } catch (e) {
+    res.status(400).send(e)
+  }
+  
 })
 
 // @route GET api/quotes/authors
