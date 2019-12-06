@@ -31,6 +31,9 @@ router.post('/', auth, async (req, res) => {
   }
 })
 
+// @route GET api/quotes/mine
+// @desc Get quotes by logged in user
+// @access Private
 router.get('/mine', auth, async (req, res) => {
   const match = {}
   const sort = {}
@@ -57,34 +60,6 @@ router.get('/authors', async (req,res) => {
   })
 })
 
-// @route POST api/quotes/like/:id
-// @desc like/unlike post
-// @access Private
-router.post('/like/:id', [ auth ], 
-async (req, res) => {
-  try {
-    Quote.findById(req.params.id)
-      .then(quote => {
-        if(quote.likes.filter(like => like.user.toString() === req.user.id).length > 0){
-
-          // remove user from likes array
-          const removeIndex = quote.likes.map(like => like.user.toString()).indexOf(req.user.id)
-
-          quote.likes.splice(removeIndex, 1)
-          quote.save().then(quote => res.json(quote))
-        } else {
-          // add user to likes array
-          quote.likes.push({ user: req.user.id })
-
-          quote.save().then(quote => res.json(quote))
-        }
-      })
-  } catch (err) {
-    console.error(err.message)
-    res.status(404).json({ nopostfound: 'No quote found'})
-  }
-})
-
 // @route GET api/quotes
 // @desc get all quotes
 // @access Public
@@ -95,22 +70,33 @@ router.get('/', async (req, res) => {
     .catch(err => res.status(404).json({ nopostfound: 'No quotes found'}))
 })
 
-// @route  GET api/quotes/:author
+// @route  GET api/quotes/author/:author
 // @desc   Gets all quotes by a specific author
 // @access Public
-router.get('/:author', (req, res) => {
+router.get('/author/:author', (req, res) => {
   Quote.find({ author: req.params.author })
     .then(quotes => res.json(quotes))
     .catch(err => res.status(404).json({ quotes: 'No quotes found'}))
 })
 
-// @route  GET api/quotes/:user
-// @desc   Gets all quotes by a specific user
+// @route  GET api/quotes/:id
+// @desc   Gets a specific quote by id
 // @access Public
-router.get('/:user', (req, res) => {
-  Quote.find({ user: req.params.user })
-    .then(quotes => res.json(quotes))
-    .catch(err => res.status(404).json({ quotes: 'No quotes found'}))
+router.get('/:id', auth, async (req, res) => {
+  const _id = req.params.id
+
+  try {
+    // make sure logged in user made the Quote
+    const quote = await Quote.findOne({ _id, owner: req.user._id})
+
+    if(!quote){
+      return res.status(404).send('Task does not exist')
+    }
+
+    res.send(quote)
+  } catch (e) {
+    res.status(400).send(e)
+  }
 })
 
 module.exports = router
