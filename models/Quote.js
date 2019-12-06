@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+const validator = require('validator')
 // const Schema = mongoose.Schema
 
 const QuoteSchema = new mongoose.Schema({
@@ -10,11 +11,20 @@ const QuoteSchema = new mongoose.Schema({
   author: {
     type: String,
     required: true,
-    unique: true
+    validate(value){
+      if(value.length < 1){
+        throw new Error('Author is required. Use Unknown if necessary')
+      }
+    }
   },
   text: {
     type: String,
-    required: true
+    required: true,
+    validate(value){
+      if(value.length < 1){
+        throw new Error('Must fill out text to submit')
+      }
+    }
   },
   dateOfQuote: {
     type: String

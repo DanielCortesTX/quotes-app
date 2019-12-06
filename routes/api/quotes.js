@@ -1,10 +1,10 @@
 const express = require('express')
+const auth = require('../../middleware/auth')
 const router = express.Router()
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys')
 const { check, validationResult } = require('express-validator/check')
-const auth = require('../../middleware/auth')
 
 const Quote = require('../../models/Quote')
 const User = require('../../models/User')
@@ -13,41 +13,20 @@ const Author = require('../../models/Author')
 // @route POST api/quotes
 // @desc Create a quote
 // @access Private
-router.post('/', [auth,[
-  check('text', 'Text is required')
-    .not()
-    .isEmpty(),
-  check('author', 'Author is required. Use Unknown if necessary')
-    .not()
-    .isEmpty()  
-  ]
-],
-async (req, res) => {
-  const errors = validationResult(req)
-  if(!errors.isEmpty()){
-    return res.status(400).json({ errors: errors.array() })
-  }
-
-  const { text, author, dateOfQuote, bodyOfWork } = req.body
+router.post('/', auth, async (req, res) => {
+  const quote = new Quote({
+    ...req.body,
+    owner: req.user._id
+  })
+  // const { text, author, dateOfQuote, bodyOfWork } = req.body
 
   try {
-    const user = await User.findById(req.user.id).select('-password')
-    const authorSearch = await Author.find({ name: author })
-
-    const newQuote = new Quote({
-      user: req.user.id,
-      text,
-      author,
-      dateOfQuote,
-      bodyOfWork 
-    })
-
-    const quote = await newQuote.save()
-
-    res.json(quote)
-
-  } catch (err) {
-    console.error(err.message)
+    // const user = await User.findById(req.user.id).select('-password')
+    // const authorSearch = await Author.find({ name: author })
+    await quote.save()
+    res.status(201).send(quote)
+  } catch (e) {
+    console.error(e)
     res.status(500).send('Server Error')
   }
 })
