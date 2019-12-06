@@ -99,4 +99,18 @@ router.get('/:id', auth, async (req, res) => {
   }
 })
 
+router.delete('/:id', auth, async (req, res) => {
+  try {
+    const quote = await Quote.findOneAndDelete({ _id: req.params.id, owner: req.user._id})
+  
+    if(!quote){
+      return res.status(404).send()
+    }
+
+    res.send(quote)
+  } catch (e) {
+    es.status(400).send(e)
+  }
+})
+
 module.exports = router
