@@ -19,6 +19,7 @@ export const loadUser = () => async (dispatch) => {
 
   try {
     const res = await axios.get('/api/users/me')
+    console.log(res.data)
 
     dispatch({
       type: USER_LOADED,
@@ -84,7 +85,7 @@ export const login = (username, password) => async (dispatch) => {
       payload: res.data
     })
 
-    // dispatch(loadUser())
+    dispatch(loadUser())
   } catch (err) {
     const errors = err.response.data.errors
 
