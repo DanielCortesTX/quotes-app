@@ -4,6 +4,7 @@ const auth = require('../../middleware/auth')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys')
+const { check, validationResult } = require('express-validator/check')
 const User = require('../../models/User')
 // const { check, validationResult } = require('express-validator/check')
 
@@ -38,13 +39,20 @@ router.post('/', async (req, res) => {
 // @desc Login a user
 // @access Public
 router.post('/login', async (req, res) => {
+  
+  const { username, password } = req.body
+  console.log(username, password)
+
   try {
-    const user = await User.findByCredentials(req.body.username, req.body.password)
+    const user = await User.findByCredentials(username, password)
+    console.log('passed credentials')
     const token = await user.generateAuthToken()
 
+    console.log(user, token)
     res.send({
       user, token
     })
+    
   } catch (e) {
     console.log(e)
     res.status(400).send()

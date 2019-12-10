@@ -12,13 +12,13 @@ import {
 import setAuthToken from '../utils/setAuthToken'
 
 // Load User
-export const loadUser = () => async dispatch => {
+export const loadUser = () => async (dispatch) => {
   if(localStorage.token){
     setAuthToken(localStorage.token)
   }
 
   try {
-    const res = await axios.get('/api/auth')
+    const res = await axios.get('/api/users/me')
 
     dispatch({
       type: USER_LOADED,
@@ -33,7 +33,7 @@ export const loadUser = () => async dispatch => {
 
 // Register User
 export const register = (username, password) =>
-async dispatch => {
+async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -64,7 +64,7 @@ async dispatch => {
 }
 
 // Login User
-export const login = (username, password) => async dispatch => {
+export const login = (username, password) => async (dispatch) => {
   const config = {
     headers: {
       'Content-Type': 'application/json'
@@ -74,14 +74,17 @@ export const login = (username, password) => async dispatch => {
   const body = JSON.stringify({ username, password })
 
   try {
-    const res = await axios.post('/api/auth', body, config)
+    console.log(username, 'actions')
+    const res = await axios.post('/api/users/login', body, config)
+
+    console.log('after call')
 
     dispatch({
       type: LOGIN_SUCCESS,
       payload: res.data
     })
 
-    dispatch(loadUser())
+    // dispatch(loadUser())
   } catch (err) {
     const errors = err.response.data.errors
 
@@ -95,7 +98,7 @@ export const login = (username, password) => async dispatch => {
 }
 
 // Logout / clear user
-export const logout = () => dispatch => {
+export const logout = () => (dispatch) => {
   dispatch({ type: CLEAR_USER })
   dispatch({ type: LOGOUT })
 }
