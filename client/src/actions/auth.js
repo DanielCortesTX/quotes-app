@@ -99,9 +99,23 @@ export const login = (username, password) => async (dispatch) => {
 }
 
 // Logout / clear user
-export const logout = () => (dispatch) => {
-  dispatch({ type: CLEAR_USER })
-  dispatch({ type: LOGOUT })
+export const logout = () => async (dispatch) => {
+  try {
+    const res = await axios.post('/api/users/logout')
+
+    dispatch({ type: CLEAR_USER })
+    dispatch({ type: LOGOUT })
+  } catch (err) {
+    const errors = err.response.data.errors
+
+    if(errors) {
+      errors.forEach(error => console.log(error))
+    }
+    // dispatch({
+    //   type: LOGIN_FAIL
+    // })
+  }
+  
 }
 
 // dispatch(setAlert(error.msg, 'danger'))
