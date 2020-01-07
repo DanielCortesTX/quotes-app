@@ -25,7 +25,7 @@ export const loadAuthors = () => async dispatch => {
 //get quotes that user added
 export const getQuotes = () => async dispatch => {
   try {
-    const res = await axios.get('/api/quotes')
+    const res = await axios.get('/api/quotes/mine')
 
     dispatch({
       type: GET_QUOTES,
