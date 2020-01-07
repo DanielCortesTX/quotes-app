@@ -2,7 +2,7 @@ import axios from 'axios'
 import {
   LOAD_AUTHORS,
   ADD_QUOTE,
-  LOAD_QUOTES
+  GET_QUOTES
 } from './types'
 
 // load authors
@@ -22,12 +22,13 @@ export const loadAuthors = () => async dispatch => {
   }
 }
 
-export const loadQuotes = () => async dispatch => {
+//get quotes that user added
+export const getQuotes = () => async dispatch => {
   try {
     const res = await axios.get('/api/quotes')
 
     dispatch({
-      type: LOAD_QUOTES,
+      type: GET_QUOTES,
       payload: res.data
     })
     console.log(res.data)
@@ -35,6 +36,20 @@ export const loadQuotes = () => async dispatch => {
     console.log(err)
   }
 }
+
+// export const loadQuotes = () => async dispatch => {
+//   try {
+//     const res = await axios.get('/api/quotes')
+
+//     dispatch({
+//       type: LOAD_QUOTES,
+//       payload: res.data
+//     })
+//     console.log(res.data)
+//   } catch (err) {
+//     console.log(err)
+//   }
+// }
 
 // New Quote
 export const addQuote = (formData, history) => async dispatch => {

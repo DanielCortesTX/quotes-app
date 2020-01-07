@@ -1,9 +1,14 @@
-import React, { Component } from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-const UserPage = ({ auth }) => {
+const QuotesFeed = ({ auth }) => {
+
+  useEffect(() => {
+
+  },[])
+  
   return (
     <div>
       SPECIFIC USER PAGE
@@ -16,8 +21,8 @@ UserPage.propTypes = {
   auth: PropTypes.object.isRequired
 }
 
-const mapStateToProps = ({auth}) => ({
+const mapStateToProps = ({quotes}) => ({
   auth
 })
 
-export default connect(mapStateToProps)(UserPage)
+export default connect(mapStateToProps)(QuotesFeed)

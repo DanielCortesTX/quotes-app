@@ -14,3 +14,4 @@ export const LOAD_AUTHORS = 'LOAD_AUTHORS'
 
 export const ADD_QUOTE = 'ADD_QUOTE'
 export const LOAD_QUOTES = 'LOAD_QUOTES'
+export const GET_QUOTES = 'GET_QUOTES'
