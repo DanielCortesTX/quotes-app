@@ -51,7 +51,7 @@ export const addQuote = (formData, history) => async dispatch => {
       type: ADD_QUOTE,
       payload: res.data
     })
-    history.push('/home')
+    history.push('/userpage')
     console.log(res.data)
   } catch (err) {
     console.log(err)
