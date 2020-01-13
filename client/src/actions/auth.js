@@ -7,7 +7,8 @@ import {
   LOGIN_FAIL,
   AUTH_ERROR,
   CLEAR_USER,
-  LOGOUT
+  LOGOUT,
+  CLEAR_QUOTES
 } from './types'
 import setAuthToken from '../utils/setAuthToken'
 
@@ -19,7 +20,6 @@ export const loadUser = () => async (dispatch) => {
 
   try {
     const res = await axios.get('/api/users/me')
-    console.log(res.data)
 
     dispatch({
       type: USER_LOADED,
@@ -75,10 +75,7 @@ export const login = (username, password) => async (dispatch) => {
   const body = JSON.stringify({ username, password })
 
   try {
-    console.log(username, 'actions')
     const res = await axios.post('/api/users/login', body, config)
-
-    console.log('after call')
 
     dispatch({
       type: LOGIN_SUCCESS,
@@ -105,6 +102,7 @@ export const logout = () => async (dispatch) => {
 
     dispatch({ type: CLEAR_USER })
     dispatch({ type: LOGOUT })
+    dispatch({ type: CLEAR_QUOTES })
   } catch (err) {
     const errors = err.response.data.errors
 

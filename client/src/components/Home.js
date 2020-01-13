@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useEffect} from 'react'
+import { getQuotes } from '../actions/quotes'
 
 const Home = () => {
+  useEffect(() => {
+    getQuotes()
+  })
   return (
     <div>
       <h1>Quote me on it!!!!</h1>

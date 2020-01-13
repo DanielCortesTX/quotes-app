@@ -37,20 +37,6 @@ export const getQuotes = () => async dispatch => {
   }
 }
 
-// export const loadQuotes = () => async dispatch => {
-//   try {
-//     const res = await axios.get('/api/quotes')
-
-//     dispatch({
-//       type: LOAD_QUOTES,
-//       payload: res.data
-//     })
-//     console.log(res.data)
-//   } catch (err) {
-//     console.log(err)
-//   }
-// }
-
 // New Quote
 export const addQuote = (formData, history) => async dispatch => {
   try {

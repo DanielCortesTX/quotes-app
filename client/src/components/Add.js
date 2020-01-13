@@ -20,10 +20,6 @@ const Add = ({ quotes, addQuote, history }) => {
   const onSubmit = async e => {
     e.preventDefault()
     addQuote(formData, history)
-
-    // <Redirect to="/"/>
-
-    console.log(formData)
   }
   return (
     <Fragment>
@@ -70,6 +66,10 @@ const Add = ({ quotes, addQuote, history }) => {
       </form>
     </Fragment>
   )
+}
+
+Add.propTypes = {
+  addQuote: PropTypes.func.isRequired
 }
 
 const mapStateToProps = ({ quotes }) => ({
