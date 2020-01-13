@@ -28,7 +28,8 @@ export default function (state = initialState, action) {
     case ADD_QUOTE:
       return {
         ...state,
-        quotes: payload, ...state
+        quotes: [payload, ...state.quotes],
+        isLoaded: true
       }
     case CLEAR_QUOTES:
       return {
