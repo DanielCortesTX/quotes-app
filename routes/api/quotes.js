@@ -49,16 +49,17 @@ router.get('/mine', auth, async (req, res) => {
 // @route GET api/quotes/search
 // @desc Execute search
 // @access Private
-router.get('/search', auth, async () => {
+router.get('/search', auth, async (req, res) => {
 
   const { filter, search } = req.body
-  const cleaned = search.toLowerCase()
+  const cleaned = search.toString()
+  console.log(filter, cleaned, search)
 
   try {
     const search = await Quote.find({ [filter]: [cleaned] })
     res.send(search)
   } catch (err) {
-    res.status(400).send(e)
+    res.status(400).send(err)
   }
 })
 
@@ -105,7 +106,7 @@ router.get('/:id', auth, async (req, res) => {
     const quote = await Quote.findOne({ _id, owner: req.user._id})
 
     if(!quote){
-      return res.status(404).send('Task does not exist')
+      return res.status(404).send('Quote does not exist')
     }
 
     res.send(quote)
