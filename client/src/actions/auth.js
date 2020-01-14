@@ -10,6 +10,7 @@ import {
   LOGOUT,
   CLEAR_QUOTES
 } from './types'
+import { getQuotes } from './quotes'
 import setAuthToken from '../utils/setAuthToken'
 
 // Load User
@@ -25,6 +26,7 @@ export const loadUser = () => async (dispatch) => {
       type: USER_LOADED,
       payload: res.data
     })
+    dispatch(getQuotes())
   } catch (err) {
     dispatch({
       type: AUTH_ERROR
