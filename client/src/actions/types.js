@@ -16,3 +16,5 @@ export const ADD_QUOTE = 'ADD_QUOTE'
 export const LOAD_QUOTES = 'LOAD_QUOTES'
 export const GET_QUOTES = 'GET_QUOTES'
 export const CLEAR_QUOTES = 'CLEAR_QUOTES'
+
+export const SET_FILTER = 'SET_FILTER'
