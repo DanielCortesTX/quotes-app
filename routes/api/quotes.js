@@ -44,7 +44,22 @@ router.get('/mine', auth, async (req, res) => {
   } catch (e) {
     res.status(400).send(e)
   }
-  
+})
+
+// @route GET api/quotes/search
+// @desc Execute search
+// @access Private
+router.get('/search', auth, async () => {
+
+  const { filter, search } = req.body
+  const cleaned = search.toLowerCase()
+
+  try {
+    const search = await Quote.find({ [filter]: [cleaned] })
+    res.send(search)
+  } catch (err) {
+    res.status(400).send(e)
+  }
 })
 
 // @route GET api/quotes/authors

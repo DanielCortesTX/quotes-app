@@ -27,20 +27,21 @@ const QuoteSchema = new mongoose.Schema({
     }
   },
   dateOfQuote: {
-    type: Number,
-    validate(value){
-      if(value.length !== 4){
-        throw new Error('Year must be 4 digits long')
-      }
-    }
+    type: Number
+    // type: Number,
+    // validate(value){
+    //   if(value.length !== 4){
+    //     throw new Error('Year must be 4 digits long')
+    //   }
+    // }
   },
   bodyOfWork: {
-    type: String,
-    validate(value){
-      if(value.length < 1){
-        throw new Error('Must fill out text to submit')
-      }
-    }
+    type: String
+    // validate(value){
+    //   if(value.length < 1){
+    //     throw new Error('Must fill out text to submit')
+    //   }
+    // }
   }
 }, {
   timestamps: true
