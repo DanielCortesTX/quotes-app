@@ -57,3 +57,23 @@ export const addQuote = (formData, history) => async dispatch => {
     console.log(err)
   }
 }
+
+// search by filter
+export const getFilteredQuotes = (formData) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'content-Type': 'application/json'
+      }
+    }
+  
+    const res = await axios.get('/api/quotes/search', formData, config)
+  
+    dispatch({
+      type: GET_QUOTES,
+      payload: res.data
+    })  
+  } catch (err) {
+    console.log(err)
+  }
+}
