@@ -52,12 +52,12 @@ router.get('/mine', auth, async (req, res) => {
 router.get('/search', auth, async (req, res) => {
 
   const { filter, search } = req.body
-  const cleaned = search.toString()
-  console.log(filter, cleaned, search)
+  // const cleaned = search.toString()
+  // console.log(filter, cleaned, search)
 
   try {
-    const search = await Quote.find({ [filter]: [cleaned] })
-    res.send(search)
+    const results = await Quote.find({ [filter]: [search] })
+    res.send(results)
   } catch (err) {
     res.status(400).send(err)
   }

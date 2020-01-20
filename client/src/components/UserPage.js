@@ -4,10 +4,16 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import QuoteDisplay from './QuoteDisplay'
 import { getQuotes } from '../actions/quotes'
+import { getFilteredQuotes } from '../actions/quotes'
 
-const UserPage = ({ getQuotes, auth, quotes }) => {
+const UserPage = ({ getQuotes, auth, quotes, activeFilter, searchField, getFilteredQuotes }) => {
   useEffect(( )=> {
-    getQuotes()
+    if(activeFilter && searchField !== ''){
+      let formData = {activeFilter, searchField}
+      getFilteredQuotes(formData)
+    } else {
+      getQuotes()
+    }
   }, [])
   let render
   if(quotes && auth.user !== null){
@@ -30,9 +36,11 @@ UserPage.propTypes = {
   auth: PropTypes.object.isRequired
 }
 
-const mapStateToProps = ({auth, quotes}) => ({
+const mapStateToProps = ({auth, quotes, filters}) => ({
   auth,
-  quotes: quotes.quotes
+  quotes: quotes.quotes,
+  activeFilter: filters.activeFilter,
+  searchField: filters.searchField
 })
 
-export default connect(mapStateToProps, {getQuotes})(UserPage)
+export default connect(mapStateToProps, {getQuotes, getFilteredQuotes})(UserPage)

@@ -66,6 +66,9 @@ export const getFilteredQuotes = (formData) => async dispatch => {
         'content-Type': 'application/json'
       }
     }
+// const { filter, search } = formData
+
+// const body = JSON.stringify({ filter, search })
   
     const res = await axios.get('/api/quotes/search', formData, config)
   
