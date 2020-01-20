@@ -37,10 +37,10 @@ const App = () => {
           <section>
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route exact path="/search" component={Search}/>
               
               <Route exact path="/login" component={Login}/>
               <Route exact path="/register" component={Register}/>
+              <PrivateRoute exact path="/search" component={Search}/>
               <PrivateRoute exact path="/add" component={Add}/>
               <PrivateRoute exact path="/userpage" component={UserPage}/>
               
