@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { setFilters } from '../actions/filter'
 import { getFilteredQuotes } from '../actions/quotes'
 
-const Search = ({ setFilters, getFilteredQuotes }) => {
+const Search = ({ setFilters, getFilteredQuotes, history }) => {
   const [formData, setFormData] = useState({
     filter: '',
     search: ''
@@ -22,7 +22,7 @@ const Search = ({ setFilters, getFilteredQuotes }) => {
     }
 
     setFilters(formData)
-    getFilteredQuotes(formData)
+    getFilteredQuotes(formData, history)
   }
 
   return (

@@ -6,11 +6,12 @@ import QuoteDisplay from './QuoteDisplay'
 import { getQuotes } from '../actions/quotes'
 import { getFilteredQuotes } from '../actions/quotes'
 
-const UserPage = ({ getQuotes, auth, quotes, activeFilter, searchField, getFilteredQuotes }) => {
+const UserPage = ({ getQuotes, auth, quotes, filter, search, getFilteredQuotes }) => {
   useEffect(( )=> {
-    if(activeFilter && searchField !== ''){
+    if(filter && search !== ''){
       // adjust this....
-      let formData = {activeFilter, searchField}
+      const formData = {filter, search }
+      console.log(filter, search)
       getFilteredQuotes(formData)
     } else {
       getQuotes()
@@ -40,8 +41,8 @@ UserPage.propTypes = {
 const mapStateToProps = ({auth, quotes, filters}) => ({
   auth,
   quotes: quotes.quotes,
-  activeFilter: filters.activeFilter,
-  searchField: filters.searchField
+  filter: filters.activeFilter,
+  search: filters.searchField
 })
 
 export default connect(mapStateToProps, {getQuotes, getFilteredQuotes})(UserPage)

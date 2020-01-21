@@ -59,7 +59,7 @@ export const addQuote = (formData, history) => async dispatch => {
 }
 
 // search by filter
-export const getFilteredQuotes = ({filter, search}) => async dispatch => {
+export const getFilteredQuotes = ({filter, search}, history) => async dispatch => {
   const config = {
     headers: {
       'content-Type': 'application/json'
@@ -75,6 +75,7 @@ export const getFilteredQuotes = ({filter, search}) => async dispatch => {
       type: GET_QUOTES,
       payload: res.data
     })  
+    history.push('/userpage')
   } catch (err) {
     console.log(err)
   }
