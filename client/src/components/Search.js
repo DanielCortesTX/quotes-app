@@ -13,7 +13,7 @@ const Search = ({ setFilters, getFilteredQuotes }) => {
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
 
-  const { filter, search } = formData
+  // const { filter, search } = formData
 
   const onSubmit = async e => {
     e.preventDefault()
@@ -22,7 +22,7 @@ const Search = ({ setFilters, getFilteredQuotes }) => {
     }
 
     setFilters(formData)
-    getFilteredQuotes(filter, search)
+    getFilteredQuotes(formData)
   }
 
   return (

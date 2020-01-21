@@ -49,27 +49,14 @@ router.get('/mine', auth, async (req, res) => {
 // @route GET api/quotes/search
 // @desc Execute search
 // @access Private
-router.get('/search', auth, async (req, res) => {
+router.get('/:filter/:search', auth, async (req, res) => {
 
-  console.log(req.body, 'first')
+  const { filter, search } = req.params
 
-  const { filter, search } = req.body
-  // const cleaned = search.toString()
-  // console.log(filter, cleaned, search)
-
-  console.log(req.body.filter)
+  console.log(req.params.search)
 
   try {
-    console.log(req.body.filter, 'yes')
-
-
-    // Quote.find().then(quotes => {
-    //   // console.log(quotes)
-    //   let filtered = quotes.filter((quote, index) => quote.filter === search )
-    //   console.log(filtered)
-    //   res.json(filtered)
-    // })
-
+    console.log(req.params.filter, 'pre-search')
 
     const results = await Quote.find({ [filter]: [search] })
     console.log(results)
