@@ -51,12 +51,29 @@ router.get('/mine', auth, async (req, res) => {
 // @access Private
 router.get('/search', auth, async (req, res) => {
 
+  console.log(req.body, 'first')
+
   const { filter, search } = req.body
   // const cleaned = search.toString()
   // console.log(filter, cleaned, search)
 
+  console.log(req.body.filter)
+
   try {
+    console.log(req.body.filter, 'yes')
+
+
+    // Quote.find().then(quotes => {
+    //   // console.log(quotes)
+    //   let filtered = quotes.filter((quote, index) => quote.filter === search )
+    //   console.log(filtered)
+    //   res.json(filtered)
+    // })
+
+
     const results = await Quote.find({ [filter]: [search] })
+    console.log(results)
+
     res.send(results)
   } catch (err) {
     res.status(400).send(err)

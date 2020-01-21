@@ -59,18 +59,20 @@ export const addQuote = (formData, history) => async dispatch => {
 }
 
 // search by filter
-export const getFilteredQuotes = (formData) => async dispatch => {
-  try {
-    const config = {
-      headers: {
-        'content-Type': 'application/json'
-      }
+export const getFilteredQuotes = (filter, search) => async dispatch => {
+  const config = {
+    headers: {
+      'content-Type': 'application/json'
     }
-// const { filter, search } = formData
+  }
 
-// const body = JSON.stringify({ filter, search })
-  
-    const res = await axios.get('/api/quotes/search', formData, config)
+  const body = JSON.stringify({ filter, search })
+
+  try {
+    console.log(body)
+    const res = await axios.get('/api/quotes/search', body, config)
+
+    console.log(res)
   
     dispatch({
       type: GET_QUOTES,

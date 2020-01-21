@@ -2,24 +2,27 @@ import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { setFilters, check } from '../actions/filter'
+import { setFilters } from '../actions/filter'
+import { getFilteredQuotes } from '../actions/quotes'
 
-const Search = ({ filter, setFilters }) => {
+const Search = ({ setFilters, getFilteredQuotes }) => {
   const [formData, setFormData] = useState({
-    filter: 'author',
+    filter: '',
     search: ''
   })
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
+
+  const { filter, search } = formData
 
   const onSubmit = async e => {
     e.preventDefault()
     if(formData.search === ''){
       return console.log('Error, must put input in')
     }
-    check()
+
     setFilters(formData)
-    console.log(formData)
+    getFilteredQuotes(filter, search)
   }
 
   return (
@@ -27,21 +30,23 @@ const Search = ({ filter, setFilters }) => {
       THis is the search page.
       <div className="card">
         <form onSubmit={e => onSubmit(e)}>
-          <select onChange={e => onChange(e)}>
+          <select name="filter" onChange={e => onChange(e)}>
+            <option
+              value={null}
+            >
+              Select
+            </option>
             <option 
-              name="author" 
               value="author"
             >
               Author
             </option>
             <option
-              name="dateOfQuote" 
               value="dateOfQuote" 
             >
               Year
             </option>
             <option
-              name="bodyOfWork" 
               value="bodyOfWork"
             >
               Body of Work
@@ -64,8 +69,7 @@ Search.propTypes = {
 }
 
 const mapStateToProps = ({ filters, quotes }) => ({
-  quotes: quotes.quotes,
-  filter: filters.activeFilter
+  quotes: quotes.quotes
 })
 
-export default connect(mapStateToProps, { setFilters, check })(withRouter(Search))
+export default connect(mapStateToProps, { setFilters, getFilteredQuotes })(withRouter(Search))

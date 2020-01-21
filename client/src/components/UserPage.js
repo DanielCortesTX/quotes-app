@@ -9,6 +9,7 @@ import { getFilteredQuotes } from '../actions/quotes'
 const UserPage = ({ getQuotes, auth, quotes, activeFilter, searchField, getFilteredQuotes }) => {
   useEffect(( )=> {
     if(activeFilter && searchField !== ''){
+      // adjust this....
       let formData = {activeFilter, searchField}
       getFilteredQuotes(formData)
     } else {
