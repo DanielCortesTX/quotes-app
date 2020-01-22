@@ -99,13 +99,14 @@ export const login = (username, password) => async (dispatch) => {
 }
 
 // Logout / clear user
-export const logout = () => async (dispatch) => {
+export const logout = () => (dispatch) => {
   try {
-    const res = await axios.post('/api/users/logout')
+    axios.post('/api/users/logout')
 
     dispatch({ type: CLEAR_USER })
     dispatch({ type: LOGOUT })
     dispatch({ type: CLEAR_QUOTES })
+
   } catch (err) {
     const errors = err.response.data.errors
 
