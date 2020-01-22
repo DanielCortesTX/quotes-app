@@ -1,5 +1,4 @@
-import React, { Component, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import QuoteDisplay from './QuoteDisplay'
