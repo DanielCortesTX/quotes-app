@@ -15,8 +15,6 @@ export const loadAuthors = () => async dispatch => {
     type: LOAD_AUTHORS,
     payload: res.data
   })
-  
-  console.log(res.data)
   } catch (err) {
     console.log(err)
   }
@@ -31,7 +29,6 @@ export const getQuotes = () => async dispatch => {
       type: GET_QUOTES,
       payload: res.data
     })
-    console.log(res.data)
   } catch (err) {
     console.log(err)
   }
@@ -52,7 +49,6 @@ export const addQuote = (formData, history) => async dispatch => {
       payload: res.data
     })
     history.push('/userpage')
-    console.log(res.data)
   } catch (err) {
     console.log(err)
   }
@@ -68,8 +64,6 @@ export const getFilteredQuotes = ({filter, search}, history) => async dispatch =
 
   try {
     const res = await axios.get(`/api/quotes/${filter}/${search}`, config)
-
-    console.log(res)
   
     dispatch({
       type: GET_QUOTES,

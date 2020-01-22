@@ -10,7 +10,7 @@ const UserPage = ({ getQuotes, auth, quotes, filter, search, getFilteredQuotes }
     if(filter && search !== ''){
       // adjust this....
       const formData = {filter, search }
-      console.log(filter, search)
+
       getFilteredQuotes(formData)
     } else {
       getQuotes()
