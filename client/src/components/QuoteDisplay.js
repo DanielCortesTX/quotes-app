@@ -14,6 +14,7 @@ const QuoteDisplay = ({quote}) => {
       <div>{quote.author}</div>
       <div>{quote.dateOfQuote}</div>
       <div>{quote.bodyOfWork}</div>
+      <button><Link className="btn-primary" to={`/display/${quote._id}`}>Details</Link></button>
     </div>
   )
 }

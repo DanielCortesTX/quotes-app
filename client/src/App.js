@@ -8,6 +8,7 @@ import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import UserPage from './components/UserPage'
 import Navbar from './components/Navbar'
+import Display from './components/Display'
 import PrivateRoute from './components/routing/PrivateRoute'
 
 import { Provider } from 'react-redux'
@@ -42,6 +43,7 @@ const App = () => {
               <Route exact path="/register" component={Register}/>
               <PrivateRoute exact path="/search" component={Search}/>
               <PrivateRoute exact path="/add" component={Add}/>
+              <PrivateRoute exact path="/display/:id" component={Display}/>
               <PrivateRoute exact path="/userpage" component={UserPage}/>
               
             </Switch>
