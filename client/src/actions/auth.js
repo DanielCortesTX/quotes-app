@@ -11,6 +11,7 @@ import {
   CLEAR_QUOTES
 } from './types'
 import { getQuotes } from './quotes'
+import { setError } from './error'
 import setAuthToken from '../utils/setAuthToken'
 
 // Load User
@@ -89,7 +90,7 @@ export const login = (username, password) => async (dispatch) => {
     const errors = err.response.data.errors
 
     if(errors) {
-      errors.forEach(error => console.log(error))
+      errors.forEach(error => dispatch(setError(error.message, 'danger')))
     }
     dispatch({
       type: LOGIN_FAIL

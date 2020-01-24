@@ -20,3 +20,5 @@ export const SET_ACTIVE_QUOTE = 'SET_ACTIVE_QUOTE'
 export const LOADING_QUOTES = 'LOADING_QUOTES'
 
 export const SET_FILTERS = 'SET_FILTERS'
+export const SET_ERROR = 'SET_ERROR'
+export const REMOVE_ERROR = 'REMOVE_ERROR'
