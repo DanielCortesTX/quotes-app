@@ -10,6 +10,7 @@ import UserPage from './components/UserPage'
 import Navbar from './components/Navbar'
 import Display from './components/Display'
 import PrivateRoute from './components/routing/PrivateRoute'
+import Errors from './components/Errors'
 
 import { Provider } from 'react-redux'
 import store from './store'
@@ -36,6 +37,7 @@ const App = () => {
         <Fragment>
           <Navbar />
           <section>
+            <Errors />
             <Switch>
               <Route exact path="/" component={Home}/>
               
