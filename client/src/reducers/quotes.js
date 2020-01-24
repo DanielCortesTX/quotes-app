@@ -2,13 +2,16 @@ import {
   LOAD_AUTHORS,
   ADD_QUOTE,
   GET_QUOTES,
-  CLEAR_QUOTES
+  CLEAR_QUOTES,
+  SET_ACTIVE_QUOTE,
+  LOADING_QUOTES
 } from '../actions/types'
 
 const initialState = {
   authors: null,
   quotes: [],
-  isLoaded: false
+  isLoaded: false,
+  activeQuote: null
 }
 
 export default function (state = initialState, action) {
@@ -19,6 +22,11 @@ export default function (state = initialState, action) {
       return {
         authors: payload,
         isLoaded: true
+      }
+    case LOADING_QUOTES:
+      return {
+        ...state,
+        isLoaded: false
       }
     case GET_QUOTES:
       return {
@@ -35,6 +43,12 @@ export default function (state = initialState, action) {
       return {
         ...state,
         quotes: []
+      }  
+    case SET_ACTIVE_QUOTE:
+      return {
+        ...state,
+        activeQuote: payload,
+        isLoaded: true
       }  
     default: return state  
   }

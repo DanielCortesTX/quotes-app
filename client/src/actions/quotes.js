@@ -2,7 +2,9 @@ import axios from 'axios'
 import {
   LOAD_AUTHORS,
   ADD_QUOTE,
-  GET_QUOTES
+  GET_QUOTES,
+  SET_ACTIVE_QUOTE,
+  LOADING_QUOTES
 } from './types'
 
 // load authors
@@ -72,5 +74,33 @@ export const getFilteredQuotes = ({filter, search}, history) => async dispatch =
     history.push('/userpage')
   } catch (err) {
     console.log(err)
+  }
+}
+
+// get specific quote
+export const setActiveQuote = (quoteId) => async dispatch => {
+  dispatch(setPostLoading())
+  const config = {
+    headers: {
+      'content-Type': 'application/json'
+    }
+
+  } 
+  try {
+    const res = await axios.get(`/api/quotes/${quoteId}` ,config)
+    dispatch({
+      type: SET_ACTIVE_QUOTE,
+      payload: res.data
+    })
+
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+// Set loading page
+export const setPostLoading = () => {
+  return {
+    type: LOADING_QUOTES
   }
 }

@@ -1,17 +1,30 @@
 import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import { setActiveQuote } from '../actions/quotes'
 
-const QuoteDisplay = ({match}) => {
+const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
 
   useEffect(() => {
-    console.log(match.params.id)
+    setActiveQuote(match.params.id)
   },[])
+
+  let display
+
+  if(!loading || quote === undefined){
+    display = <h1>Loading</h1>
+  } else {
+    display = <div>
+    <p className="display-4">INDIVIDUAL</p>
+      <p>{match.params.id}</p>
+      <p>{quote.text}</p>
+    </div>
+  }
   
   return (
     <div className="card">
-      <p className="display-4">INDIVIDUAL</p>
-      <p>{match.params.id}</p>
+      {display}
     </div>
   )
 }
@@ -20,12 +33,13 @@ const QuoteDisplay = ({match}) => {
 //   auth: PropTypes.object.isRequired
 // }
 
-// const mapStateToProps = ({quotes}) => ({
-//   auth
-// })
+const mapStateToProps = ({quotes}) => ({
+  quote: quotes.activeQuote,
+  loading: quotes.isLoaded
+})
 
-// export default connect(mapStateToProps)(QuoteDisplay)
-export default QuoteDisplay
+export default connect(mapStateToProps, { setActiveQuote })(QuoteDisplay)
+// export default QuoteDisplay
 
 
 // <div>{quote.text}</div>
