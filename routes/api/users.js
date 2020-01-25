@@ -45,17 +45,22 @@ router.post('/login', async (req, res) => {
 
   try {
     const user = await User.findByCredentials(username, password)
+    // if(typeof(user) === Array){
+    //   console.log(user, 'nnnnnn')
+    //   res.status(400).json({ errors: user})
+    // }
     console.log('passed credentials')
     const token = await user.generateAuthToken()
 
     console.log(user, token)
+  
     res.send({
       user, token
     })
     
   } catch (e) {
-    console.log(e)
-    res.status(400).send()
+    console.log(e.message, 'noooooo')
+    res.status(401).json({ errors: [{ message: `${e.message}`}]})
   }
 })
 
