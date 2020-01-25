@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
   
   } catch(err) {
     console.error(err.message)
-    res.status(500).send('Server error')
+    res.status(500).json({ errors: [{ message: `${err.message}`}]})
   }
 })
 
@@ -58,9 +58,9 @@ router.post('/login', async (req, res) => {
       user, token
     })
     
-  } catch (e) {
-    console.log(e.message, 'noooooo')
-    res.status(401).json({ errors: [{ message: `${e.message}`}]})
+  } catch (err) {
+    console.log(err.message, 'noooooo')
+    res.status(401).json({ errors: [{ message: `${err.message}`}]})
   }
 })
 

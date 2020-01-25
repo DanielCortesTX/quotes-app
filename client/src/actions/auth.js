@@ -59,7 +59,7 @@ async (dispatch) => {
     const errors = err.response.data.errors
 
     if(errors) {
-      errors.forEach(error => console.log('oops'))
+      errors.forEach(error => dispatch(setError(error.message, 'red')))
     }
     dispatch({
       type: REGISTER_FAIL
