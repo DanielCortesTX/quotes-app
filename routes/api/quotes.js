@@ -26,8 +26,9 @@ router.post('/', auth, async (req, res) => {
     await quote.save()
     res.status(201).send(quote)
   } catch (e) {
-    console.error(e)
+    console.log(e.message)
     res.status(400).send(e)
+    return res.status(401).json({ errors: [ { message: `${e.message}`}]})
   }
 })
 

@@ -14,13 +14,20 @@ const User = require('../../models/User')
 router.post('/', async (req, res) => {
   const user = new User(req.body)
   const { username } = user
+  const { password } = req.body.password
 
   try {
+    if(password === ''){
+      return res.status(401).json({ errors: [ { message: 'Password is blank'}]})
+    }
+
     // See if username is taken
     let check = await User.findOne({ username })
 
     if(check) {
-      return res.status(400).json({ errors: [ { msg: 'Username is taken'}]})
+      return res.status(401).json({ errors: [ { message: 'Username is taken'}]})
+      // res.status(401).json({ errors: [{ message: `${err.message}`}]})
+      // 'Username is taken'
     }
 
     await user.save()
@@ -41,7 +48,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   
   const { username, password } = req.body
-  console.log(username, password)
+  // console.log(username, password)
 
   try {
     const user = await User.findByCredentials(username, password)
@@ -52,7 +59,7 @@ router.post('/login', async (req, res) => {
     console.log('passed credentials')
     const token = await user.generateAuthToken()
 
-    console.log(user, token)
+    // console.log(user, token)
   
     res.send({
       user, token

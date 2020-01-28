@@ -4,8 +4,11 @@ import {
   ADD_QUOTE,
   GET_QUOTES,
   SET_ACTIVE_QUOTE,
-  LOADING_QUOTES
+  LOADING_QUOTES,
+  SET_ERROR
 } from './types'
+
+import { setError } from './error'
 
 // load authors
 export const loadAuthors = () => async dispatch => {
@@ -53,6 +56,21 @@ export const addQuote = (formData, history) => async dispatch => {
     history.push('/userpage')
   } catch (err) {
     console.log(err)
+    const errors = err.response.data.errors
+    let errArray = []
+    if(errors.text){
+      errArray.push(errors.text.message)
+    }
+
+    if(errors.author){
+      errArray.push(errors.author.message)
+    }
+
+    console.log(errArray, 'yessssss')
+
+    if(errArray.length > 0) {
+      errArray.forEach(error => dispatch(setError(error, 'red')))
+    }
   }
 }
 
