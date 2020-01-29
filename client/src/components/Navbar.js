@@ -38,7 +38,7 @@ class Navbar extends Component {
           <Link className="" to="/userpage">User page</Link>
         </li>
         <li>
-          <button onClick={this.onLogoutClick.bind(this)}>Logout</button>
+          <button className="btn" onClick={this.onLogoutClick.bind(this)}>Logout</button>
         </li>
       </ul>
     )

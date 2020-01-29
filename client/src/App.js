@@ -36,7 +36,7 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <section>
+          <section className="container">
             <Errors />
             <Switch>
               <Route exact path="/" component={Home}/>
