@@ -70,9 +70,19 @@
   padding: 3rem;
 }
 
+.my-1 {
+  padding: 1.5rem 0;
+}
+
+.my-2 {
+  padding: 2rem 0;
+}
+
+.my-3 {
+  padding: 3rem 0;
+}
+
 .navbar-h {
-  /* padding: 20px; */
-  border-bottom: black solid 3px;
   display: flex;
   position: sticky;
   top: 0;
@@ -98,4 +108,34 @@
   background: aqua;
   padding: 0.5rem 2rem;
   border: none;
+}
+
+/* Search page */
+.search {
+  border: solid 1px black;
+  height: 85vh;
+}
+
+#search-form {
+  width: 100%;
+  display: flex;
+  /* justify-content: space-between; */
+  margin: auto 0;
+}
+
+.search-select {
+  background-color: blue;
+  color: white;
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  border: none;
+  margin-right: 1.25rem;
+}
+
+.search-input {
+
+}
+
+.search-select::placeholder {
+  color: white;
 }

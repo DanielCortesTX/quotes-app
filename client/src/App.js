@@ -11,6 +11,7 @@ import Navbar from './components/Navbar'
 import Display from './components/Display'
 import PrivateRoute from './components/routing/PrivateRoute'
 import Errors from './components/Errors'
+import Footer from './components/Footer'
 
 import { Provider } from 'react-redux'
 import store from './store'
@@ -50,6 +51,7 @@ const App = () => {
               
             </Switch>
           </section>
+          <Footer />
         </Fragment>
       </Router>
     </Provider>

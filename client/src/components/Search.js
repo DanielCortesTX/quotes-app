@@ -26,11 +26,12 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
   }
 
   return (
-    <div>
-      THis is the search page.
-      <div className="card">
-        <form onSubmit={e => onSubmit(e)}>
-          <select name="filter" onChange={e => onChange(e)}>
+    <div className="my-1">
+      <div className="search p-1">
+        <h2 className="py-1">Search for quotes</h2>
+        <p className="py-1">Hone in on the quotes you're looking for. Select Author, year the quote was made or the body of work it belongs to and then type in your search (Be precise). Finally hit search and view the results.</p>
+        <form onSubmit={e => onSubmit(e)} id="search-form">
+          <select className="search-select" name="filter" onChange={e => onChange(e)}>
             <option
               value={null}
             >
@@ -56,8 +57,9 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
             type="text"
             name="search"
             placeholder="Search for"
+            className="search-select"
             onChange={e => onChange(e)}/>
-          <input type="submit"/>
+          <input type="submit" className="btn"/>
         </form>
       </div>
     </div>
