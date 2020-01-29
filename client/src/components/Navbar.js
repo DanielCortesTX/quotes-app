@@ -16,26 +16,26 @@ class Navbar extends Component {
     const { isAuthenticated } = this.props.auth
 
     const unlogged = (
-      <ul className="navbar-nav ml-auto">
-        <li className="nav-item">
-          <Link className="nav-link" to="/login">Login</Link>
+      <ul className="">
+        <li className="">
+          <Link className="" to="/login">Login</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/register">Register</Link>
+        <li className="n">
+          <Link className="" to="/register">Register</Link>
         </li>
       </ul>
     )
 
     const loggedIn = (
-      <ul className="navbar-nav ml-auto">
+      <ul className="">
         <li>
-          <Link className="nav-link nav-item" to="/search">{' '}Search</Link>
+          <Link className="" to="/search">{' '}Search</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/add">Add</Link>
+        <li className="">
+          <Link className="" to="/add">Add</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/userpage">User page</Link>
+        <li className="">
+          <Link className="" to="/userpage">User page</Link>
         </li>
         <li>
           <button onClick={this.onLogoutClick.bind(this)}>Logout</button>
@@ -44,10 +44,10 @@ class Navbar extends Component {
     )
 
     return (
-      <nav className="navbar navbar-expand-sm bg-secondary navbar-dark p-3">
-        <div className="container">
-          <div className="navbar-nav">
-            <Link className="navbar-brand" to="/">Home</Link>  
+      <nav className="navbar-h">
+        <div className="">
+          <div className="">
+            <Link className="" to="/">Home</Link>  
           </div>
           {isAuthenticated ? loggedIn : unlogged} 
         </div>
