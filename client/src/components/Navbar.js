@@ -46,11 +46,9 @@ class Navbar extends Component {
     return (
       <nav className="navbar-h">
         <div className="">
-          <div className="">
-            <Link className="" to="/">Home</Link>  
-          </div>
-          {isAuthenticated ? loggedIn : unlogged} 
+          <Link className="" to="/">Home</Link>  
         </div>
+        {isAuthenticated ? loggedIn : unlogged} 
       </nav>
     )
   }
