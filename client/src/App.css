@@ -144,6 +144,7 @@
 /* user page */
 .user {
   border: solid 1px black;
+  min-height: 85vh;
 }
 
 /* Add Page */
