@@ -9,12 +9,10 @@ const QuoteDisplay = ({quote}) => {
   },[])
   
   return (
-    <div className="card">
-      <div>{quote.text}</div>
-      <div>{quote.author}</div>
-      <div>{quote.dateOfQuote}</div>
-      <div>{quote.bodyOfWork}</div>
-      <button><Link className="btn-primary" to={`/display/${quote._id}`}>Details</Link></button>
+    <div className="quote-link p-1">
+      <h3 className="">{quote.text}</h3>
+      <p>{quote.author}</p>
+      <button  className="btn"><Link to={`/display/${quote._id}`}>Details</Link></button>
     </div>
   )
 }

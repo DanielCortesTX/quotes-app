@@ -113,7 +113,7 @@
 
 .page {
   border: solid 1px black;
-  height: 85vh;
+  min-height: 85vh;
 }
 
 /* Search page */
@@ -148,8 +148,31 @@
   min-height: 85vh;
 }
 
+.quotes-feed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 /* Add Page */
 .add-text {
   min-width: 50%;
   margin-bottom: 1rem;
+}
+
+/* Quote display */
+
+
+.quote-link {
+  border: 1px solid black;
+  margin: 1rem;
+  min-height: 100px;
+  min-width: 400px;
+  max-width: 30%;
+  line-height: 1.4rem;
+}
+
+.quote-link p {
+  margin: 0.5rem 0;
 }
