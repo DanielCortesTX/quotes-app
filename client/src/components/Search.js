@@ -27,7 +27,7 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
 
   return (
     <div className="my-1">
-      <div className="search p-1">
+      <div className="page p-1">
         <h2 className="py-1">Search for quotes</h2>
         <p className="py-1">Hone in on the quotes you're looking for. Select Author, year the quote was made or the body of work it belongs to and then type in your search (Be precise). Finally hit search and view the results.</p>
         <form onSubmit={e => onSubmit(e)} id="search-form">

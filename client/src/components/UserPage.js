@@ -25,10 +25,12 @@ const UserPage = ({ getQuotes, auth, quotes, filter, search, getFilteredQuotes }
     render = <h1>Sign in to view</h1>
   }
   return (
-    <div>
-      SPECIFIC USER PAGE
-      <h1>Hello</h1>
-      {render}
+    <div className="my-1">
+      <div className="user">
+        SPECIFIC USER PAGE
+        <h1>Hello</h1>
+        {render}
+      </div>
     </div>
   )
 }

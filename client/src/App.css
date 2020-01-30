@@ -110,11 +110,12 @@
   border: none;
 }
 
-/* Search page */
-.search {
+.page {
   border: solid 1px black;
   height: 85vh;
 }
+
+/* Search page */
 
 #search-form {
   width: 100%;
@@ -138,4 +139,9 @@
 
 .search-select::placeholder {
   color: white;
+}
+
+/* user page */
+.user {
+  border: solid 1px black;
 }

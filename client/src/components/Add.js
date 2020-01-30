@@ -23,47 +23,51 @@ const Add = ({ quotes, addQuote, history }) => {
   }
   return (
     <Fragment>
-      <h1>Add a quote</h1>
-      <p>Add your own quote here. Text and author are required, but utilize date of quote and body of work for organization!</p>
-      <form onSubmit={e => onSubmit(e)}>
-        <div>
-          <input 
-            type="text"
-            placeholder="Quote"
-            name="text"
-            value={text}
-            onChange={e => onChange(e)}
-          />
+      <div className="my-1">
+        <div className="page">
+          <h1>Add a quote</h1>
+          <p>Add your own quote here. Text and author are required, but utilize date of quote and body of work for organization!</p>
+          <form onSubmit={e => onSubmit(e)}>
+            <div>
+              <input 
+                type="text"
+                placeholder="Quote"
+                name="text"
+                value={text}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div>
+              <input 
+                type="text"
+                placeholder="Author"
+                name="author"
+                value={author}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div>
+              <input 
+                type="text"
+                placeholder="Date of Quote"
+                name="dateOfQuote"
+                value={dateOfQuote}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div>
+              <input 
+                type="text"
+                placeholder="Body of Work"
+                name="bodyOfWork"
+                value={bodyOfWork}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <input type="submit" className="btn btn-success" value="Submit"/>      
+          </form>
         </div>
-        <div>
-          <input 
-            type="text"
-            placeholder="Author"
-            name="author"
-            value={author}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <div>
-          <input 
-            type="text"
-            placeholder="Date of Quote"
-            name="dateOfQuote"
-            value={dateOfQuote}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <div>
-          <input 
-            type="text"
-            placeholder="Body of Work"
-            name="bodyOfWork"
-            value={bodyOfWork}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <input type="submit" className="btn btn-success" value="Submit"/>      
-      </form>
+      </div>
     </Fragment>
   )
 }

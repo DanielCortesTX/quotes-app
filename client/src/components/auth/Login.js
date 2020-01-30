@@ -26,31 +26,35 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <h1>Login</h1>
-      <p>Sign in for full experience</p>
-      <form onSubmit={e => onSubmit(e)}>
-        <div>
-          <input 
-            type="text"
-            placeholder="Username"
-            name="username"
-            value={username}
-            onChange={e => onChange(e)}
-          />
+      <div className="my-1">
+        <div className="page">
+          <h1>Login</h1>
+          <p>Sign in for full experience</p>
+          <form onSubmit={e => onSubmit(e)}>
+            <div>
+              <input 
+                type="text"
+                placeholder="Username"
+                name="username"
+                value={username}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div>
+              <input 
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <input type="submit" className="btn btn-danger" value="Login"/>      
+          </form>
+          <p>Haven't signed up yet? 
+          <Link to="/register">Register</Link></p>
         </div>
-        <div>
-          <input 
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <input type="submit" className="btn btn-danger" value="Login"/>      
-      </form>
-      <p>Haven't signed up yet? 
-        <Link to="/register">Register</Link></p>
+      </div>
     </Fragment>
   )
 }

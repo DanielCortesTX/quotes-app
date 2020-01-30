@@ -25,31 +25,35 @@ const Register = ({register, isAuthenticated}) => {
   }
   return (
     <Fragment>
-      <h1>Register</h1>
-      <p>Register for full experience</p>
-      <form onSubmit={e => onSubmit(e)}>
-        <div>
-          <input 
-            type="text"
-            placeholder="Username"
-            name="username"
-            value={username}
-            onChange={e => onChange(e)}
-          />
+      <div className="my-1">
+        <div className="page">
+          <h1>Register</h1>
+          <p>Register for full experience</p>
+          <form onSubmit={e => onSubmit(e)}>
+            <div>
+              <input 
+                type="text"
+                placeholder="Username"
+                name="username"
+                value={username}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <div>
+              <input 
+                type="password"
+                placeholder="Password"
+                name="password"
+                value={password}
+                onChange={e => onChange(e)}
+              />
+            </div>
+            <input type="submit" className="btn btn-danger" value="Register"/>  
+          </form>
+          <p>Already signed up? 
+          <Link to="/login">Sign In</Link></p>
         </div>
-        <div>
-          <input 
-            type="password"
-            placeholder="Password"
-            name="password"
-            value={password}
-            onChange={e => onChange(e)}
-          />
-        </div>
-        <input type="submit" className="btn btn-danger" value="Register"/>  
-      </form>
-      <p>Already signed up? 
-        <Link to="/login">Sign In</Link></p>
+      </div>
     </Fragment>
   )
 }

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
+import Loading from './frequents/Loading'
 import { setActiveQuote } from '../actions/quotes'
 
 const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
@@ -13,9 +14,9 @@ const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
   let display
 
   if(!loading || quote === undefined){
-    display = <h1>Loading</h1>
+    display = <Loading />
   } else {
-    display = <div>
+    display = <div className="page">
     <p className="display-4">INDIVIDUAL</p>
       <p>{match.params.id}</p>
       <p>{quote.text}</p>
@@ -23,7 +24,7 @@ const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
   }
   
   return (
-    <div className="card">
+    <div className="my-1">
       {display}
     </div>
   )
