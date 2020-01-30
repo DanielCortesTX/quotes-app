@@ -145,3 +145,8 @@
 .user {
   border: solid 1px black;
 }
+
+/* Add Page */
+.add-text {
+  min-width: 50%;
+}

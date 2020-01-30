@@ -24,47 +24,51 @@ const Add = ({ quotes, addQuote, history }) => {
   return (
     <Fragment>
       <div className="my-1">
-        <div className="page">
-          <h1>Add a quote</h1>
+        <div className="page p-1">
+          <h1 className="py-1">Add a quote</h1>
           <p>Add your own quote here. Text and author are required, but utilize date of quote and body of work for organization!</p>
-          <form onSubmit={e => onSubmit(e)}>
-            <div>
+          <form onSubmit={e => onSubmit(e)}  className="py-1">
+            <div className="py-1">
               <input 
                 type="text"
                 placeholder="Quote"
                 name="text"
                 value={text}
+                className="search-select add-text"
                 onChange={e => onChange(e)}
               />
             </div>
-            <div>
+            <div className="py-1">
               <input 
                 type="text"
                 placeholder="Author"
                 name="author"
                 value={author}
+                className="search-select add-text"
                 onChange={e => onChange(e)}
               />
             </div>
-            <div>
+            <div className="py-1">
               <input 
                 type="text"
                 placeholder="Date of Quote"
                 name="dateOfQuote"
                 value={dateOfQuote}
+                className="search-select add-text"
                 onChange={e => onChange(e)}
               />
             </div>
-            <div>
+            <div className="py-1">
               <input 
                 type="text"
                 placeholder="Body of Work"
                 name="bodyOfWork"
                 value={bodyOfWork}
+                className="search-select  add-text"
                 onChange={e => onChange(e)}
               />
             </div>
-            <input type="submit" className="btn btn-success" value="Submit"/>      
+            <input type="submit" className="btn" value="Submit"/>      
           </form>
         </div>
       </div>
