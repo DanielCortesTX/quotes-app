@@ -176,3 +176,8 @@
 .quote-link p {
   margin: 0.5rem 0;
 }
+
+.quote-specifics p {
+  /* text-align: right; */
+  margin-left: 30px;
+}

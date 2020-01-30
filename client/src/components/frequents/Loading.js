@@ -4,7 +4,7 @@ export default function Loading() {
   return (
     <div className="page">
       <h1 className="">Loading Projects...</h1>
-      <div class=""></div>
+      <div></div>
     </div>
   )
 }

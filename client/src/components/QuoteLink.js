@@ -12,7 +12,7 @@ const QuoteDisplay = ({quote}) => {
     <div className="quote-link p-1">
       <h3 className="">{quote.text}</h3>
       <p>{quote.author}</p>
-      <button  className="btn"><Link to={`/display/${quote._id}`}>Details</Link></button>
+      <button  className="btn"><Link className="btn" to={`/display/${quote._id}`}>Details</Link></button>
     </div>
   )
 }

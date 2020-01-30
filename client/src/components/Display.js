@@ -16,10 +16,13 @@ const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
   if(!loading || quote === undefined){
     display = <Loading />
   } else {
-    display = <div className="page">
-    <p className="display-4">INDIVIDUAL</p>
-      <p>{match.params.id}</p>
-      <p>{quote.text}</p>
+    display = <div className="page p-1">
+      <div className="quote-specifics">
+        <h2>"{quote.text}"</h2>
+        <p>-{quote.author}</p>
+        <p>{quote.dateOfQuote}</p>
+        <p>{quote.bodyOfWork}</p>
+      </div>
     </div>
   }
   
