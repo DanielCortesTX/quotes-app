@@ -26,16 +26,17 @@ const Register = ({register, isAuthenticated}) => {
   return (
     <Fragment>
       <div className="my-1">
-        <div className="page">
-          <h1>Register</h1>
+        <div className="page p-1">
+          <h1 className="py-1">Register</h1>
           <p>Register for full experience</p>
-          <form onSubmit={e => onSubmit(e)}>
+          <form className="py-1" onSubmit={e => onSubmit(e)}>
             <div>
               <input 
                 type="text"
                 placeholder="Username"
                 name="username"
                 value={username}
+                className="search-select add-text"
                 onChange={e => onChange(e)}
               />
             </div>
@@ -45,13 +46,14 @@ const Register = ({register, isAuthenticated}) => {
                 placeholder="Password"
                 name="password"
                 value={password}
+                className="search-select add-text"
                 onChange={e => onChange(e)}
               />
             </div>
-            <input type="submit" className="btn btn-danger" value="Register"/>  
+            <input type="submit" className="btn" value="Register"/>  
           </form>
           <p>Already signed up? 
-          <Link to="/login">Sign In</Link></p>
+          <Link to="/login" className="btn">Sign In</Link></p>
         </div>
       </div>
     </Fragment>

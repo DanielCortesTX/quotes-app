@@ -27,16 +27,17 @@ const Login = ({ login, isAuthenticated }) => {
   return (
     <Fragment>
       <div className="my-1">
-        <div className="page">
-          <h1>Login</h1>
+        <div className="page p-1">
+          <h1 className="py-1">Login</h1>
           <p>Sign in for full experience</p>
-          <form onSubmit={e => onSubmit(e)}>
+          <form className="py-1" onSubmit={e => onSubmit(e)}>
             <div>
               <input 
                 type="text"
                 placeholder="Username"
                 name="username"
                 value={username}
+                className="search-select add-text"
                 onChange={e => onChange(e)}
               />
             </div>
@@ -46,13 +47,14 @@ const Login = ({ login, isAuthenticated }) => {
                 placeholder="Password"
                 name="password"
                 value={password}
+                className="search-select add-text"
                 onChange={e => onChange(e)}
               />
             </div>
-            <input type="submit" className="btn btn-danger" value="Login"/>      
+            <input type="submit" className="btn" value="Login"/>      
           </form>
           <p>Haven't signed up yet? 
-          <Link to="/register">Register</Link></p>
+          <Link to="/register" className="btn">Register</Link></p>
         </div>
       </div>
     </Fragment>

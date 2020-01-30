@@ -108,6 +108,7 @@
   background: aqua;
   padding: 0.5rem 2rem;
   border: none;
+  text-decoration: none;
 }
 
 .page {
@@ -150,4 +151,5 @@
 /* Add Page */
 .add-text {
   min-width: 50%;
+  margin-bottom: 1rem;
 }
