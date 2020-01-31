@@ -1,17 +1,18 @@
 import React, { Fragment, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import Home from './components/Home'
-import Search from './components/Search'
-import Add from './components/Add'
-import Login from './components/auth/Login'
-import Register from './components/auth/Register'
-import UserPage from './components/UserPage'
 import Navbar from './components/Navbar'
-import Display from './components/Display'
 import PrivateRoute from './components/routing/PrivateRoute'
 import Errors from './components/Errors'
 import Footer from './components/Footer'
+
+import Home from './screens/Home'
+import Login from './screens/auth/Login'
+import Register from './screens/auth/Register'
+import Search from './screens/Search'
+import Add from './screens/Add'
+import UserPage from './screens/UserPage'
+import Display from './screens/Display'
 
 import { Provider } from 'react-redux'
 import store from './store'
