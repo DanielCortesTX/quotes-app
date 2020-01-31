@@ -87,14 +87,32 @@
   position: sticky;
   top: 0;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   background: #0000e6;
   padding: 1rem;
+  min-height: 100px;
 }
 
 .navbar-h ul {
   list-style: none;
   display: flex;
+  align-items: center;
+}
+
+.navbar-h button {
+  padding: 1rem;
+  margin: 0 0.5rem;
+  color: black;
+  box-sizing: border-box;
+}
+
+.navbar-h button:hover {
+  padding: 1rem;
+  margin: 0 0.5rem;
+  color: white;
+  border: 2px solid aqua;
+  background: #0000e6;
 }
 
 .navbar-h a {
@@ -102,6 +120,11 @@
   color: white;
   padding: 1rem;
   margin: 0 0.5rem;
+}
+
+.navbar-h a:hover {
+  background: aqua;
+  color: black;
 }
 
 .btn {
