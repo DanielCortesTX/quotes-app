@@ -145,6 +145,7 @@
   border: none;
   text-decoration: none;
   border-radius: 5px;
+  max-width: 200px;
 }
 
 .page {
@@ -178,7 +179,8 @@
   color: white;
 }
 
-/* user page */
+/* USER PAGE */
+
 .user {
   border: solid 1px black;
   min-height: 85vh;
@@ -191,14 +193,7 @@
   justify-content: center;
 }
 
-/* Add Page */
-.add-text {
-  min-width: 50%;
-  margin-bottom: 1rem;
-}
-
-/* Quote display */
-
+/* QUOTE DISPLAY */
 
 .quote-link {
   border: 1px solid black;
@@ -211,6 +206,20 @@
   flex-direction: column;
 }
 
+.quote-link  {
+  color: #282c34;
+}
+
+.btn-quote {
+  background: aqua;
+  padding: 0.5rem 2rem;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
 .quote-link p {
   margin: 0.5rem 0;
 }
@@ -219,7 +228,38 @@
   margin: 0 auto;
 }
 
+@media(max-width: 700px){
+  .quote-link {
+    min-width: 70%;
+    /* max-width: 80%; */
+    display: flex;
+  }
+
+  .btn {
+    /* width: 50%; */
+    margin: 0 auto;
+  }
+
+  .btn-quote {
+    padding: 0.25rem 1rem;
+    /* max-width: 100px; */
+    /* margin: 0 auto; */
+  }
+
+  .quotes-feed {
+    padding: .25rem;
+  }
+}
+
+/* DISPLAY */
+
 .quote-specifics p {
   /* text-align: right; */
   margin-left: 30px;
+}
+
+/* ADD PAGE */
+.add-text {
+  min-width: 50%;
+  margin-bottom: 1rem;
 }
