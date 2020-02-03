@@ -10,8 +10,8 @@ const QuoteDisplay = ({quote}) => {
   
   return (
     <div className="quote-link p-1">
-      <h3 className="">{quote.text}</h3>
-      <p>{quote.author}</p>
+      <h3 className="">{quote.text.slice(0,30)}...</h3>
+      <p>- {quote.author}</p>
       <button  className="btn"><Link className="btn" to={`/display/${quote._id}`}>Details</Link></button>
     </div>
   )

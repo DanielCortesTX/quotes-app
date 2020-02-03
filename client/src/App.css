@@ -207,10 +207,16 @@
   min-width: 400px;
   max-width: 30%;
   line-height: 1.4rem;
+  display: flex;
+  flex-direction: column;
 }
 
 .quote-link p {
   margin: 0.5rem 0;
+}
+
+.quote-link button {
+  margin: 0 auto;
 }
 
 .quote-specifics p {
