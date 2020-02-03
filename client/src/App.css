@@ -94,6 +94,16 @@
   min-height: 100px;
 }
 
+@media(max-width: 550px){
+  .navbar-h {
+    flex-direction: column;
+  }
+
+  .navbar-h ul {
+    flex-direction: column;
+  }
+}
+
 .navbar-h ul {
   list-style: none;
   display: flex;
