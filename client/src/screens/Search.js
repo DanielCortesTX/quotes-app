@@ -59,7 +59,7 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
             placeholder="Search for"
             className="search-select"
             onChange={e => onChange(e)}/>
-          <input type="submit" className="btn"/>
+          <input type="submit" className="btn-quote"/>
         </form>
       </div>
     </div>

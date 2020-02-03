@@ -68,7 +68,7 @@ const Add = ({ quotes, addQuote, history }) => {
                 onChange={e => onChange(e)}
               />
             </div>
-            <input type="submit" className="btn" value="Submit"/>      
+            <input type="submit" className="btn-quote" value="Submit"/>      
           </form>
         </div>
       </div>
