@@ -71,15 +71,15 @@
 }
 
 .my-1 {
-  padding: 1.5rem 0;
+  margin: 1.5rem 0;
 }
 
 .my-2 {
-  padding: 2rem 0;
+  margin: 2rem 0;
 }
 
 .my-3 {
-  padding: 3rem 0;
+  margin: 3rem 0;
 }
 
 .navbar-h {
@@ -273,4 +273,12 @@
 .add-text {
   min-width: 50%;
   margin-bottom: 1rem;
+}
+
+/* ERROR */
+
+.error {
+  background: rgb(155, 42, 42);
+  border: 2px solid red;
+  color: rgb(241, 241, 241);
 }

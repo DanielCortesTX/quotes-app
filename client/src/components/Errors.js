@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 const Errors = ({ errors }) => 
 errors !== null && errors.length > 0 && errors.map(error => (
-  <div key={error.id} className={`error error-${error.errorType}`}>
+  <div key={error.id} className='error p-1 my-2'>
     { error.message }
   </div>
 ))
