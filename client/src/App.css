@@ -249,6 +249,11 @@
   .quotes-feed {
     padding: .25rem;
   }
+
+  .add-text {
+    width: 100%;
+    
+  }
 }
 
 /* DISPLAY */
