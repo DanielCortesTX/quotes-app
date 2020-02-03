@@ -115,6 +115,7 @@
   margin: 0 0.5rem;
   color: black;
   box-sizing: border-box;
+  /* border-radius: 5%; */
 }
 
 .navbar-h button:hover {
@@ -130,6 +131,7 @@
   color: white;
   padding: 1rem;
   margin: 0 0.5rem;
+  border-radius: 5px;
 }
 
 .navbar-h a:hover {
@@ -142,6 +144,7 @@
   padding: 0.5rem 2rem;
   border: none;
   text-decoration: none;
+  border-radius: 5px;
 }
 
 .page {
