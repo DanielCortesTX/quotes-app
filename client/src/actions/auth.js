@@ -58,6 +58,8 @@ async (dispatch) => {
   } catch (err) {
     const errors = err.response.data.errors
 
+    console.log(errors[0].message.password)
+
     if(errors) {
       errors.forEach(error => dispatch(setError(error.message, 'red')))
     }
@@ -89,7 +91,7 @@ export const login = (username, password) => async (dispatch) => {
   } catch (err) {
     const errors = err.response.data.errors
 
-    console.log(errors[0].msg, 'yessssss')
+    console.log(errors[0], 'yessssss')
 
     if(errors) {
       errors.forEach(error => dispatch(setError(error.message, 'red')))

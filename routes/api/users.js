@@ -13,22 +13,24 @@ const User = require('../../models/User')
 // @access Public
 router.post('/', async (req, res) => {
   const user = new User(req.body)
-  const { username } = user
-  const { password } = req.body.password
+  const { username, password } = user
+  // const { password } = req.body.password
+  // const password = user.password
 
   try {
-    if(password === ''){
-      return res.status(401).json({ errors: [ { message: 'Password is blank'}]})
-    }
+    // if(password === ''){
+    //   return res.status(401).json({ errors: [ { message: 'Password is blank'}]})
+    // }
+    const user = await User.checkRegister(username, password)
 
     // See if username is taken
     let check = await User.findOne({ username })
 
     if(check) {
       return res.status(401).json({ errors: [ { message: 'Username is taken'}]})
-      // res.status(401).json({ errors: [{ message: `${err.message}`}]})
-      // 'Username is taken'
     }
+
+
 
     await user.save()
 
@@ -38,7 +40,7 @@ router.post('/', async (req, res) => {
   
   } catch(err) {
     console.error(err.message)
-    res.status(500).json({ errors: [{ message: `${err.message}`}]})
+    res.status(501).json({ errors: [{ message: `${err.message}`}]})
   }
 })
 
