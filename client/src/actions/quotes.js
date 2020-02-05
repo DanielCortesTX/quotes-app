@@ -5,7 +5,7 @@ import {
   GET_QUOTES,
   SET_ACTIVE_QUOTE,
   LOADING_QUOTES,
-  SET_ERROR
+  // SET_ERROR
 } from './types'
 
 import { setError } from './error'
@@ -88,10 +88,11 @@ export const getFilteredQuotes = ({filter, search}, history) => async dispatch =
     dispatch({
       type: GET_QUOTES,
       payload: res.data
-    })  
+    })
+    
     history.push('/userpage')
   } catch (err) {
-    console.log(err)
+    // console.log(err)
   }
 }
 

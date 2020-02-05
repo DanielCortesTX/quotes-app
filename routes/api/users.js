@@ -13,34 +13,35 @@ const User = require('../../models/User')
 // @access Public
 router.post('/', async (req, res) => {
   const user = new User(req.body)
-  const { username, password } = user
+  const { username, password } = req.body
   // const { password } = req.body.password
   // const password = user.password
+  console.log(username, password, '2333')
 
   try {
     // if(password === ''){
     //   return res.status(401).json({ errors: [ { message: 'Password is blank'}]})
     // }
-    const user = await User.checkRegister(username, password)
+    const checkInput = await User.checkRegister(user)
+
+    console.log(user, '444')
 
     // See if username is taken
-    let check = await User.findOne({ username })
+    let checkUsername = await User.findOne({ username })
 
-    if(check) {
+    if(checkUsername) {
       return res.status(401).json({ errors: [ { message: 'Username is taken'}]})
     }
 
-
-
-    await user.save()
+    await checkInput.save()
 
     // Return jsonwebtoken
     const token = await user.generateAuthToken()
     res.status(201).send({ user, token })
   
   } catch(err) {
-    console.error(err.message)
-    res.status(501).json({ errors: [{ message: `${err.message}`}]})
+    console.error(err, '55555')
+    res.status(502).json({ errors: [{ message: `${err.message}`}]})
   }
 })
 

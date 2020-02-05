@@ -76,12 +76,17 @@ UserSchema.statics.findByCredentials = async (username, password) => {
   return user
 }
 
-UserSchema.statics.checkRegister = async (username, password) => {
+UserSchema.statics.checkRegister = async (user) => {
+  const { username,password } = user
   if(password === ''){
     throw new Error('Password cannot be blank')
   } else if (password.length < 6){
     throw new Error('Password must be at least 6 characters')
+  } else if (username === ''){
+    throw new Error('Username cannot be blank')
   }
+
+  return user
 }
 
 // run before user is saved, hash password before saving

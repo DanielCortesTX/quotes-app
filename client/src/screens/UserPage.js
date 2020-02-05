@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import QuoteLink from '../components/QuoteLink'
 import { getQuotes } from '../actions/quotes'
@@ -15,7 +15,6 @@ const UserPage = ({ getQuotes, quotes, filter, search, getFilteredQuotes, user }
     } else {
       getQuotes()
     }
-    console.log(user)
   }, [])
   let render
   if(quotes && user !== null){

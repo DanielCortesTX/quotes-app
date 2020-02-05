@@ -46,6 +46,8 @@ async (dispatch) => {
 
   const body = JSON.stringify({ username, password })
 
+  // console.log(username, password)
+
   try {
     const res = await axios.post('/api/users', body, config)
 
@@ -91,7 +93,7 @@ export const login = (username, password) => async (dispatch) => {
   } catch (err) {
     const errors = err.response.data.errors
 
-    console.log(errors[0], 'yessssss')
+    // console.log(errors[0], 'yessssss')
 
     if(errors) {
       errors.forEach(error => dispatch(setError(error.message, 'red')))

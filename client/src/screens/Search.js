@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { setFilters } from '../actions/filter'
+import { setError } from '../actions/error'
 import { getFilteredQuotes } from '../actions/quotes'
 
 const Search = ({ setFilters, getFilteredQuotes, history }) => {
@@ -18,7 +19,9 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
   const onSubmit = async e => {
     e.preventDefault()
     if(formData.search === ''){
-      return console.log('Error, must put input in')
+      return setError('search cannot be blank')
+      // console.log('Error, must put input in')
+      // // throw new Error('Must have input')
     }
 
     setFilters(formData)

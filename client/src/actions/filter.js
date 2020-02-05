@@ -1,6 +1,6 @@
 import { SET_FILTERS } from './types'
 
-export const setFilters = (formData) => async dispatch => {
+export const setFilters = (formData, history) => async dispatch => {
   try {
     // const config = {
     //   headers: {
@@ -20,13 +20,12 @@ export const setFilters = (formData) => async dispatch => {
       type: SET_FILTERS,
       payload: formData
     })
+    
+    history.push('/userpage')
 
-    // dispatch({
-    //   type: GET_QUOTES,
-    //   payload: res.data
-    // })
+    // getFilteredQuotes(formData, history)
 
   } catch (err) {
-    console.log(err)
+    // console.log(err)
   }
 }

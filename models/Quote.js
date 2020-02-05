@@ -36,6 +36,10 @@ const QuoteSchema = new mongoose.Schema({
   timestamps: true
 })
 
+// QuoteSchema.statics.checkSearch = async (filter, search) => {
+//   console.log(filter, search, '11122')
+// }
+
 module.exports = Quote = mongoose.model('quote', QuoteSchema)
 
 // user: {

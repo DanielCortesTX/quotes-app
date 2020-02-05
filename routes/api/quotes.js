@@ -57,14 +57,18 @@ router.get('/:filter/:search', auth, async (req, res) => {
   console.log(req.params.search)
 
   try {
-    console.log(req.params.filter, 'pre-search')
+    // console.log(req.params.filter, 'pre-search')
+    // Quote.checkSearch(filter, search)
+    if(filter === ''){
+      throw new Error('Must pick a filter')
+    }
 
     const results = await Quote.find({ [filter]: [search] })
     console.log(results)
 
     res.send(results)
   } catch (err) {
-    res.status(400).send(err)
+    res.status(403).send(err)
   }
 })
 
