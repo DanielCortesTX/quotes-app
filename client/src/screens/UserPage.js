@@ -31,7 +31,7 @@ const UserPage = ({ getQuotes, quotes, filter, search, getFilteredQuotes, user }
   }
   return (
     <div className="my-1">
-      <div className="user p-1">
+      <div className="page p-1">
         {render}
       </div>
     </div>

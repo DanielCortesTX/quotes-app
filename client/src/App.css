@@ -101,6 +101,7 @@
 @media(max-width: 550px){
   .navbar-h {
     flex-direction: column;
+    position: relative;
   }
 
   .navbar-h ul {
@@ -109,6 +110,7 @@
 
   .navbar-h li {
     margin: 1rem 0;
+    /* min-width: 200px; */
   }
 
   .nav-link {
@@ -165,9 +167,20 @@
   max-width: 200px;
 }
 
+.footer {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+
 .page {
-  border: solid 1px black;
-  min-height: 85vh;
+  border: solid 3px black;
+  border-radius: 5px;
+  min-height: 75vh;
 }
 
 /* Search page */
@@ -180,16 +193,12 @@
 }
 
 .search-select {
-  background-color: blue;
+  background-color: #112e8c;
   color: white;
   padding: 0.5rem;
   font-size: 1.25rem;
   border: none;
   margin-right: 1.25rem;
-}
-
-.search-input {
-
 }
 
 .search-select::placeholder {
@@ -213,7 +222,8 @@
 /* QUOTE DISPLAY */
 
 .quote-link {
-  border: 1px solid black;
+  border: 2px solid black;
+  border-radius: 5px;
   margin: 1rem;
   min-height: 100px;
   min-width: 400px;
@@ -221,10 +231,11 @@
   line-height: 1.4rem;
   display: flex;
   flex-direction: column;
+  color: #282c34;
 }
 
-.quote-link  {
-  color: #282c34;
+.quote-link  p {
+  font-style: italic;
 }
 
 .btn-quote {
@@ -234,7 +245,11 @@
   text-decoration: none;
   border-radius: 5px;
   max-width: 200px;
-  margin: 0 auto;
+  margin: 1.5rem auto;
+
+
+  /* padding: 0.5rem 2rem; */
+  font-size: 1.25rem;
 }
 
 .btn-quote:hover {
