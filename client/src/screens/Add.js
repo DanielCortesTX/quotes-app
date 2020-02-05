@@ -29,7 +29,7 @@ const Add = ({ quotes, addQuote, history }) => {
           <p>Add your own quote here. Text and author are required, but utilize date of quote and body of work for organization!</p>
           <form onSubmit={e => onSubmit(e)}  className="py-1 mx-1">
             <div className="py-1">
-              <input 
+              <textarea 
                 type="text"
                 placeholder="Quote"
                 name="text"
