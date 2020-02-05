@@ -93,7 +93,7 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background: #0000e6;
+  background: #112e8c;
   padding: 1rem;
   min-height: 100px;
 }
@@ -152,8 +152,8 @@
 }
 
 .navbar-h a:hover {
-  background: aqua;
-  color: black;
+  color: #61dafb;
+  background: black;
 }
 
 .btn {
