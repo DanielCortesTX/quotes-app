@@ -27,7 +27,7 @@ const Add = ({ quotes, addQuote, history }) => {
         <div className="page p-1">
           <h1 className="py-1">Add a quote</h1>
           <p>Add your own quote here. Text and author are required, but utilize date of quote and body of work for organization!</p>
-          <form onSubmit={e => onSubmit(e)}  className="py-1">
+          <form onSubmit={e => onSubmit(e)}  className="py-1 mx-1">
             <div className="py-1">
               <input 
                 type="text"

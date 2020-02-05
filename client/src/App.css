@@ -82,6 +82,10 @@
   margin: 3rem 0;
 }
 
+.mx-1 {
+  margin: 0 1.5rem;
+}
+
 .navbar-h {
   display: flex;
   position: sticky;
@@ -101,6 +105,14 @@
 
   .navbar-h ul {
     flex-direction: column;
+  }
+
+  .navbar-h li {
+    margin: 1rem 0;
+  }
+
+  .nav-link {
+    margin: 1rem 0;
   }
 }
 
@@ -155,7 +167,7 @@
 
 /* Search page */
 
-#search-form {
+.search-form {
   width: 100%;
   display: flex;
   /* justify-content: space-between; */
