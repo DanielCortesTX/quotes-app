@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 // import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import QuoteLink from '../components/QuoteLink'
+import UserFeed from '../components/UserFeed'
 import { getQuotes } from '../actions/quotes'
 import { getFilteredQuotes } from '../actions/quotes'
 
@@ -18,14 +18,11 @@ const UserPage = ({ getQuotes, quotes, filter, search, getFilteredQuotes, user }
   }, [])
   let render
   if(quotes && user !== null){
-    render = <div>
-      <h1 className="py-1">Hello {user.username}</h1>
-      <div className="quotes-feed">
-        {quotes.map((quote, index) => {
-          return <QuoteLink key={index} quote={quote}/>
-        })}
-        </div>
-      </div>
+    render = <UserFeed 
+      quotes={quotes}  
+      user={user}
+      filter={filter}
+      search={search}/>
   } else {
     render = <h1>Sign in to view</h1>
   }

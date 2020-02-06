@@ -122,7 +122,10 @@
     flex-direction: column;
   }
 
-  
+  .filter-display {
+    flex-direction: column;
+    justify-content: center;
+  }
 }
 
 .navbar-h ul {
@@ -315,4 +318,12 @@
   background: rgb(155, 42, 42);
   border: 2px solid red;
   color: rgb(241, 241, 241);
+}
+
+/* Filter Display */
+
+.filter-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
