@@ -185,7 +185,7 @@
 .page {
   border: solid 3px black;
   border-radius: 5px;
-  min-height: 75vh;
+  min-height: 70vh;
 }
 
 /* Search page */
