@@ -29,8 +29,8 @@ const Register = ({register, isAuthenticated}) => {
         <div className="page p-1">
           <h1 className="py-1">Register</h1>
           <p>Register for full experience</p>
-          <form className="py-1" onSubmit={e => onSubmit(e)}>
-            <div>
+          <form className="p-1 auth-body" onSubmit={e => onSubmit(e)}>
+            <div className="">
               <input 
                 type="text"
                 placeholder="Username"

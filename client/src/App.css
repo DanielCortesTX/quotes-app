@@ -126,6 +126,10 @@
     flex-direction: column;
     justify-content: center;
   }
+
+  .auth-body {
+    padding: 1.5rem 0;
+  }
 }
 
 .navbar-h ul {
@@ -208,6 +212,12 @@
 
 .search-select::placeholder {
   color: white;
+}
+
+.auth-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* USER PAGE */
@@ -308,7 +318,7 @@
 
 /* ADD PAGE */
 .add-text {
-  min-width: 50%;
+  width: 100%;
   margin-bottom: 1rem;
 }
 

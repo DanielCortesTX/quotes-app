@@ -30,7 +30,7 @@ const Login = ({ login, isAuthenticated }) => {
         <div className="page p-1">
           <h1 className="py-1">Login</h1>
           <p>Sign in for full experience</p>
-          <form className="py-1" onSubmit={e => onSubmit(e)}>
+          <form className="p-1 auth-body" onSubmit={e => onSubmit(e)}>
             <div>
               <input 
                 type="text"
