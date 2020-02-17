@@ -176,6 +176,11 @@
   max-width: 200px;
 }
 
+.btn:hover {
+  color: #61dafb;
+  background: black;
+}
+
 .footer {
   display: flex;
   flex-direction: column;
