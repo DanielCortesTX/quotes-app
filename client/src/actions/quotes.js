@@ -5,6 +5,7 @@ import {
   GET_QUOTES,
   SET_ACTIVE_QUOTE,
   LOADING_QUOTES,
+  SET_FILTERS,
   // SET_ERROR
 } from './types'
 
@@ -52,6 +53,10 @@ export const addQuote = (formData, history) => async dispatch => {
     dispatch({
       type: ADD_QUOTE,
       payload: res.data
+    })
+    dispatch({
+      type: SET_FILTERS,
+      payload: {activeFilter: '', searchField: ''}
     })
     history.push('/userpage')
   } catch (err) {
