@@ -22,7 +22,8 @@ const UserPage = ({ getQuotes, quotes, filter, search, getFilteredQuotes, user }
       quotes={quotes}  
       user={user}
       filter={filter}
-      search={search}/>
+      search={search}
+    />
   } else {
     render = <h1>Sign in to view</h1>
   }
