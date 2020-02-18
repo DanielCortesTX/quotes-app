@@ -34,7 +34,7 @@ const Add = ({ quotes, addQuote, history }) => {
                 placeholder="Quote"
                 name="text"
                 value={text}
-                className="search-select add-text"
+                className="search-select add-text text-body"
                 onChange={e => onChange(e)}
               />
             </div>

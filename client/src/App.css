@@ -327,6 +327,10 @@
   margin-bottom: 1rem;
 }
 
+.text-body {
+  height: 8rem;
+}
+
 /* ERROR */
 
 .error {
