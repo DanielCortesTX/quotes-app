@@ -8,7 +8,8 @@ import {
   AUTH_ERROR,
   CLEAR_USER,
   LOGOUT,
-  CLEAR_QUOTES
+  CLEAR_QUOTES,
+  SET_FILTERS
 } from './types'
 import { getQuotes } from './quotes'
 import { setError } from './error'
@@ -112,6 +113,10 @@ export const logout = () => (dispatch) => {
     dispatch({ type: CLEAR_USER })
     dispatch({ type: LOGOUT })
     dispatch({ type: CLEAR_QUOTES })
+    dispatch({
+      type: SET_FILTERS,
+      payload: {activeFilter: '', searchField: ''}
+    })
 
   } catch (err) {
     const errors = err.response.data.errors
