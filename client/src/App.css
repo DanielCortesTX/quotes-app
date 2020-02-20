@@ -173,7 +173,8 @@
   border: none;
   text-decoration: none;
   border-radius: 5px;
-  max-width: 200px;
+  max-width: 180px;
+  text-align: center;
 }
 
 .btn:hover {
@@ -315,6 +316,12 @@
 }
 
 /* DISPLAY */
+
+.quote-specifics {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 .quote-specifics p {
   /* text-align: right; */
