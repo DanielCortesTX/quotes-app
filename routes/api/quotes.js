@@ -63,7 +63,7 @@ router.get('/:filter/:search', auth, async (req, res) => {
       throw new Error('Must pick a filter')
     }
 
-    const results = await Quote.find({ [filter]: [search] })
+    const results = await Quote.find({ [filter]: [search], owner: req.user._id })
     console.log(results)
 
     res.send(results)
