@@ -17,11 +17,11 @@ const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
     display = <Loading />
   } else {
     display = <div className="page p-1 quote-specifics">
-      <div className="">
-        <h2>"{quote.text}"</h2>
-        <p>-{quote.author}</p>
-        <p>{quote.dateOfQuote}</p>
-        <p>{quote.bodyOfWork}</p>
+      <div>
+        <h1 className="display-text">"{quote.text}"</h1>
+        <h3 className="display-author py-1">-{quote.author}</h3>
+        <p>{quote.dateOfQuote ? quote.dateOfQuote : "No Date"}</p>
+        <p>{quote.bodyOfWork ? quote.bodyOfWork: "No Body of work"}</p>
       </div>
       <Link to="/userpage" className="btn my-1">Back</Link>
     </div>
