@@ -79,6 +79,28 @@ export const addQuote = (formData, history) => async dispatch => {
   }
 }
 
+// Delete Quote
+export const deleteQuote = (quoteId, history) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        'content-Type': 'application/json'
+      }
+    }
+
+    const res = await axios.delete(`/api/quotes/${quoteId}`, config)
+
+    dispatch({
+      type: GET_QUOTES,
+      payload: res.data
+    })
+
+    history.push('/userpage')
+  } catch (e) {
+    console.log(e)
+  }
+}
+
 // search by filter
 export const getFilteredQuotes = ({filter, search}, history) => async dispatch => {
   const config = {

@@ -177,8 +177,23 @@
   text-align: center;
 }
 
+.btn-delete {
+  background: rgb(187, 42, 42);;
+  padding: 0.5rem 2rem;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  max-width: 180px;
+  text-align: center;
+}
+
 .btn:hover {
   color: #61dafb;
+  background: black;
+}
+
+.btn-delete:hover {
+  color: rgb(187, 42, 42);
   background: black;
 }
 
@@ -295,6 +310,11 @@
   }
 
   .btn {
+    /* width: 50%; */
+    margin: 0 auto;
+  }
+
+  .btn-delete {
     /* width: 50%; */
     margin: 0 auto;
   }

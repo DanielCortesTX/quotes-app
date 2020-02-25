@@ -2,10 +2,10 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 // import PropTypes from 'prop-types'
 import Loading from '../components/frequents/Loading'
-import { Link } from 'react-router-dom'
-import { setActiveQuote } from '../actions/quotes'
+import { Link, withRouter } from 'react-router-dom'
+import { setActiveQuote, deleteQuote } from '../actions/quotes'
 
-const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
+const QuoteDisplay = ({match, setActiveQuote, deleteQuote, quote, loading, history}) => {
 
   useEffect(() => {
     setActiveQuote(match.params.id)
@@ -24,6 +24,7 @@ const QuoteDisplay = ({match, setActiveQuote, quote, loading}) => {
         <p>{quote.bodyOfWork ? quote.bodyOfWork: "No Body of work"}</p>
       </div>
       <Link to="/userpage" className="btn my-1">Back</Link>
+      <button className="btn-delete" onClick={() => deleteQuote(match.params.id, history)}>Delete</button>
     </div>
   }
   
@@ -43,7 +44,7 @@ const mapStateToProps = ({quotes}) => ({
   loading: quotes.isLoaded
 })
 
-export default connect(mapStateToProps, { setActiveQuote })(QuoteDisplay)
+export default connect(mapStateToProps, { setActiveQuote, deleteQuote })(withRouter(QuoteDisplay))
 // export default QuoteDisplay
 
 
