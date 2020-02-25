@@ -124,6 +124,9 @@ router.get('/:id', auth, async (req, res) => {
   }
 })
 
+// @route  DELETE api/quotes/:id
+// @desc   Delete a specific quote by id
+// @access Private
 router.delete('/:id', auth, async (req, res) => {
   try {
     const quote = await Quote.findOneAndDelete({ _id: req.params.id, owner: req.user._id})
@@ -135,6 +138,33 @@ router.delete('/:id', auth, async (req, res) => {
     res.send(quote)
   } catch (e) {
     es.status(400).send(e)
+  }
+})
+
+// @route  PATCH api/quotes/:id
+// @desc   Edit a specific quote by id
+// @access Private
+router.patch('/:id', auth, async (req, res) => {
+  const updates = Object.keys(req.body)
+  const allowedUpdates = ['text', 'author', 'dateOfQuote', 'bodyOfWork']
+  const isValidUpdate = updates.every((update) => allowedUpdates.includes(update))
+
+  if(!isValidUpdate){
+    return res.status(400).send({ error: "Invalid Update"})
+  }
+
+  try {
+    const quote = await Quote.findOne({ _id: req.params.id, owner: req.user._id})
+
+    if(!quote){
+      return res.status(404).send()
+    }
+
+    updates.forEach((update) => quote[update] = req.body[update])
+    await quote.save()
+    res.send(quote)
+  } catch (e) {
+    res.status(400).send(e)
   }
 })
 
