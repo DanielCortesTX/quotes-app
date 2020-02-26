@@ -167,7 +167,7 @@ router.patch('/:id', auth, async (req, res) => {
     await quote.save()
     res.send(quote)
   } catch (e) {
-    res.status(400).send(e)
+    res.status(401).send(e)
   }
 })
 

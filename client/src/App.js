@@ -11,6 +11,7 @@ import Login from './screens/auth/Login'
 import Register from './screens/auth/Register'
 import Search from './screens/Search'
 import Add from './screens/Add'
+import Edit from './screens/Edit'
 import UserPage from './screens/UserPage'
 import Display from './screens/Display'
 
@@ -47,6 +48,7 @@ const App = () => {
               <Route exact path="/register" component={Register}/>
               <PrivateRoute exact path="/search" component={Search}/>
               <PrivateRoute exact path="/add" component={Add}/>
+              <PrivateRoute exact path="/edit" component={Edit}/>
               <PrivateRoute exact path="/display/:id" component={Display}/>
               <PrivateRoute exact path="/userpage" component={UserPage}/>
               

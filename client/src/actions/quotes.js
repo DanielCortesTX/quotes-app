@@ -96,8 +96,48 @@ export const deleteQuote = (quoteId, history) => async dispatch => {
     })
 
     history.push('/userpage')
-  } catch (e) {
-    console.log(e)
+  } catch (err) {
+    console.log(err)
+  }
+}
+
+// Edit quote 
+export const editQuote = (quoteId, history, formData) => async dispatch => {
+  const config = {
+    headers: {
+      'content-Type': 'application/json'
+    }
+  }
+
+  try {
+    const res = await axios.patch(`/api/quotes/${quoteId}`, formData, config)
+
+    dispatch({
+      type: SET_ACTIVE_QUOTE,
+      payload: res.data
+    })
+    dispatch({
+      type: SET_FILTERS,
+      payload: {activeFilter: '', searchField: ''}
+    })
+    history.push('/userpage')
+  } catch (err) {
+    console.log(err)
+    // const errors = err.response.data.errors
+    // let errArray = []
+    // if(errors.text){
+    //   errArray.push(errors.text.message)
+    // }
+
+    // if(errors.author){
+    //   errArray.push(errors.author.message)
+    // }
+
+    // console.log(errArray, 'yessssss')
+
+    // if(errArray.length > 0) {
+    //   errArray.forEach(error => dispatch(setError(error, 'red')))
+    // }
   }
 }
 

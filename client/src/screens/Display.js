@@ -25,6 +25,7 @@ const QuoteDisplay = ({match, setActiveQuote, deleteQuote, quote, loading, histo
       </div>
       <Link to="/userpage" className="btn my-1">Back</Link>
       <button className="btn-delete" onClick={() => deleteQuote(match.params.id, history)}>Delete</button>
+      <Link to="/edit" className="btn my-1">edit</Link>
     </div>
   }
   
