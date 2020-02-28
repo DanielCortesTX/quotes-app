@@ -19,6 +19,8 @@ const Edit = ({ quote, editQuote, history }) => {
 
   const onSubmit = async e => {
     e.preventDefault()
+    console.log(formData)
+    console.log(quote._id)
     editQuote(quote._id, formData, history)
   }
   return (

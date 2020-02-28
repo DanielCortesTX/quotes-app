@@ -102,7 +102,7 @@ export const deleteQuote = (quoteId, history) => async dispatch => {
 }
 
 // Edit quote 
-export const editQuote = (quoteId, history, formData) => async dispatch => {
+export const editQuote = (quoteId, formData, history) => async dispatch => {
   const config = {
     headers: {
       'content-Type': 'application/json'

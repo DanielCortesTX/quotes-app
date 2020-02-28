@@ -19,6 +19,7 @@ const Add = ({ quotes, addQuote, history }) => {
 
   const onSubmit = async e => {
     e.preventDefault()
+    console.log(formData)
     addQuote(formData, history)
   }
   return (
