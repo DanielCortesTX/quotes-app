@@ -167,6 +167,12 @@
   background: black;
 }
 
+.display-btns {
+  display: flex;
+  justify-content: space-between;
+  max-width: 50%;
+}
+
 .btn {
   background: aqua;
   padding: 0.5rem 2rem;
@@ -178,7 +184,17 @@
 }
 
 .btn-delete {
-  background: rgb(187, 42, 42);;
+  background: rgb(187, 42, 42);
+  padding: 0.5rem 2rem;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  max-width: 180px;
+  text-align: center;
+}
+
+.btn-edit {
+  background: rgb(167, 197, 59);
   padding: 0.5rem 2rem;
   border: none;
   text-decoration: none;
@@ -194,6 +210,11 @@
 
 .btn-delete:hover {
   color: rgb(187, 42, 42);
+  background: black;
+}
+
+.btn-edit:hover {
+  color: rgb(167, 197, 59);
   background: black;
 }
 
@@ -319,6 +340,11 @@
     margin: 0 auto;
   }
 
+  .btn-edit {
+    /* width: 50%; */
+    margin: 0 auto;
+  }
+
   .btn-quote {
     padding: 0.25rem 1rem;
     /* max-width: 100px; */
@@ -332,6 +358,13 @@
   .add-text {
     width: 100%;
     
+  }
+
+  .display-btns {
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 40%;
+    max-height: 400px;
   }
 }
 

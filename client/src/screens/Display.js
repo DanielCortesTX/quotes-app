@@ -23,9 +23,11 @@ const QuoteDisplay = ({match, setActiveQuote, deleteQuote, quote, loading, histo
         <p>{quote.dateOfQuote ? quote.dateOfQuote : "No Date"}</p>
         <p>{quote.bodyOfWork ? quote.bodyOfWork: "No Body of work"}</p>
       </div>
-      <Link to="/userpage" className="btn my-1">Back</Link>
-      <button className="btn-delete" onClick={() => deleteQuote(match.params.id, history)}>Delete</button>
-      <Link to="/edit" className="btn my-1">edit</Link>
+      <div className="display-btns">
+        <Link to="/userpage" className="btn my-1">Back</Link>
+        <button className="btn-delete my-1" onClick={() => deleteQuote(match.params.id, history)}>Delete</button>
+        <Link to="/edit" className="btn-edit my-1">edit</Link>
+      </div>
     </div>
   }
   
