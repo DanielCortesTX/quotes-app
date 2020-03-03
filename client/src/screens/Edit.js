@@ -2,7 +2,6 @@ import React, { Fragment, useState} from 'react'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-
 import { editQuote } from '../actions/quotes'
 
 const Edit = ({ quote, editQuote, history }) => {
@@ -19,8 +18,7 @@ const Edit = ({ quote, editQuote, history }) => {
 
   const onSubmit = async e => {
     e.preventDefault()
-    console.log(formData)
-    console.log(quote._id)
+
     editQuote(quote._id, formData, history)
   }
   return (
@@ -79,6 +77,7 @@ const Edit = ({ quote, editQuote, history }) => {
 }
 
 Edit.propTypes = {
+  quote: PropTypes.object.isRequired,
   editQuote: PropTypes.func.isRequired
 }
 
