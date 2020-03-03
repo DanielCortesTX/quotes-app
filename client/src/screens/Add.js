@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import { addQuote } from '../actions/quotes'
 
-const Add = ({ quotes, addQuote, history }) => {
+const Add = ({ addQuote, history }) => {
   const [formData, setFormData] = useState({
     'text': '',
     'author': '',
@@ -19,7 +19,7 @@ const Add = ({ quotes, addQuote, history }) => {
 
   const onSubmit = async e => {
     e.preventDefault()
-    console.log(formData)
+    
     addQuote(formData, history)
   }
   return (
