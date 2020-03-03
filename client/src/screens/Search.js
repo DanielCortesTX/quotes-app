@@ -14,14 +14,10 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
 
-  // const { filter, search } = formData
-
   const onSubmit = async e => {
     e.preventDefault()
     if(formData.search === ''){
       return setError('search cannot be blank')
-      // console.log('Error, must put input in')
-      // // throw new Error('Must have input')
     }
 
     setFilters(formData)
@@ -70,10 +66,11 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
 }
 
 Search.propTypes = {
-  setFilters: PropTypes.func.isRequired
+  setFilters: PropTypes.func.isRequired,
+  getFilteredQuotes: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({ filters, quotes }) => ({
+const mapStateToProps = ({ quotes }) => ({
   quotes: quotes.quotes
 })
 
