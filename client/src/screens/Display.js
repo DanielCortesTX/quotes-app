@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import Loading from '../components/frequents/Loading'
 import { Link, withRouter } from 'react-router-dom'
 import { setActiveQuote, deleteQuote } from '../actions/quotes'
@@ -38,21 +38,16 @@ const QuoteDisplay = ({match, setActiveQuote, deleteQuote, quote, loading, histo
   )
 }
 
-// UserPage.propTypes = {
-//   auth: PropTypes.object.isRequired
-// }
+QuoteDisplay.propTypes = {
+  quote: PropTypes.object.isRequired,
+  loading: PropTypes.object.isRequired,
+}
 
 const mapStateToProps = ({quotes}) => ({
+  setActiveQuote: PropTypes.func.isRequired,
+  deleteQuote: PropTypes.func.isRequired,
   quote: quotes.activeQuote,
   loading: quotes.isLoaded
 })
 
 export default connect(mapStateToProps, { setActiveQuote, deleteQuote })(withRouter(QuoteDisplay))
-// export default QuoteDisplay
-
-
-// <div>{quote.text}</div>
-//       <div>{quote.author}</div>
-//       <div>{quote.dateOfQuote}</div>
-//       <div>{quote.bodyOfWork}</div>
-//       <button><Link className="btn-primary" to={``}>Details</Link></button>
