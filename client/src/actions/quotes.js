@@ -5,8 +5,7 @@ import {
   GET_QUOTES,
   SET_ACTIVE_QUOTE,
   LOADING_QUOTES,
-  SET_FILTERS,
-  // SET_ERROR
+  SET_FILTERS
 } from './types'
 
 import { setError } from './error'
@@ -123,21 +122,6 @@ export const editQuote = (quoteId, formData, history) => async dispatch => {
     history.push('/userpage')
   } catch (err) {
     console.log(err)
-    // const errors = err.response.data.errors
-    // let errArray = []
-    // if(errors.text){
-    //   errArray.push(errors.text.message)
-    // }
-
-    // if(errors.author){
-    //   errArray.push(errors.author.message)
-    // }
-
-    // console.log(errArray, 'yessssss')
-
-    // if(errArray.length > 0) {
-    //   errArray.forEach(error => dispatch(setError(error, 'red')))
-    // }
   }
 }
 
@@ -159,7 +143,7 @@ export const getFilteredQuotes = ({filter, search}, history) => async dispatch =
     
     history.push('/userpage')
   } catch (err) {
-    // console.log(err)
+    
   }
 }
 
