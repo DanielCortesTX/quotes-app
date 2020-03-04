@@ -8,11 +8,6 @@ errors !== null && errors.length > 0 && errors.map(error => (
     { error.message }
   </div>
 ))
-// errors !== null && errors.length > 0 && errors.map(error => (
-//   <div>
-//     { error.message }
-//   </div>
-// ))
 
 Errors.propTypes = {
   errors: PropTypes.array.isRequired

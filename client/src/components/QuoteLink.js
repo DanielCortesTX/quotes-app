@@ -16,13 +16,4 @@ const QuoteDisplay = ({quote}) => {
   )
 }
 
-// UserPage.propTypes = {
-//   auth: PropTypes.object.isRequired
-// }
-
-// const mapStateToProps = ({quotes}) => ({
-//   auth
-// })
-
-// export default connect(mapStateToProps)(QuoteDisplay)
 export default QuoteDisplay
