@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-// import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import UserFeed from '../components/UserFeed'
 import { getQuotes } from '../actions/quotes'
@@ -37,7 +37,12 @@ const UserPage = ({ getQuotes, quotes, filter, search, getFilteredQuotes, user }
 }
 
 UserPage.propTypes = {
-  // auth: PropTypes.object.isRequired
+  getQuotes: PropTypes.func.isRequired,
+  quotes: PropTypes.object.isRequired,
+  filter: PropTypes.string.isRequired,
+  search: PropTypes.string.isRequired,
+  getFilteredQuotes: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
 }
 
 const mapStateToProps = ({auth, quotes, filters}) => ({
