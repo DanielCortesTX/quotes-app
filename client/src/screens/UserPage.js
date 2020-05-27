@@ -5,7 +5,7 @@ import UserFeed from '../components/UserFeed'
 import { getQuotes } from '../actions/quotes'
 import { getFilteredQuotes } from '../actions/quotes'
 
-const UserPage = ({ getQuotes, quotes, filter, search, getFilteredQuotes, user }) => {
+const UserPage = ({ getQuotes, quotes, filter, filters, search, getFilteredQuotes, user }) => {
   useEffect(( )=> {
     if(filter && search !== ''){
       // adjust this....
@@ -23,6 +23,7 @@ const UserPage = ({ getQuotes, quotes, filter, search, getFilteredQuotes, user }
       user={user}
       filter={filter}
       search={search}
+      filters={filters}
     />
   } else {
     render = <h1>Sign in to view</h1>
@@ -49,7 +50,8 @@ const mapStateToProps = ({auth, quotes, filters}) => ({
   user: auth.user,
   quotes: quotes.quotes,
   filter: filters.activeFilter,
-  search: filters.searchField
+  search: filters.searchField,
+  filters: filters
 })
 
 export default connect(mapStateToProps, {getQuotes, getFilteredQuotes})(UserPage)
