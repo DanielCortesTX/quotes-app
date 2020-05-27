@@ -91,6 +91,7 @@ export const login = (username, password) => async (dispatch) => {
     dispatch(loadUser())
   } catch (err) {
     const errors = err.response.data.errors
+    console.log(err.response.data.errors)
 
     if(errors) {
       errors.forEach(error => dispatch(setError(error.message, 'red')))

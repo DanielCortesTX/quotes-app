@@ -14,17 +14,9 @@ const User = require('../../models/User')
 router.post('/', async (req, res) => {
   const user = new User(req.body)
   const { username, password } = req.body
-  // const { password } = req.body.password
-  // const password = user.password
-  console.log(username, password, '2333')
 
   try {
-    // if(password === ''){
-    //   return res.status(401).json({ errors: [ { message: 'Password is blank'}]})
-    // }
     const checkInput = await User.checkRegister(user)
-
-    console.log(user, '444')
 
     // See if username is taken
     let checkUsername = await User.findOne({ username })
@@ -55,14 +47,8 @@ router.post('/login', async (req, res) => {
 
   try {
     const user = await User.findByCredentials(username, password)
-    // if(typeof(user) === Array){
-    //   console.log(user, 'nnnnnn')
-    //   res.status(400).json({ errors: user})
-    // }
-    console.log('passed credentials')
-    const token = await user.generateAuthToken()
 
-    // console.log(user, token)
+    const token = await user.generateAuthToken()
   
     res.send({
       user, token

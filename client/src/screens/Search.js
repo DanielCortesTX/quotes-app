@@ -16,12 +16,14 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
 
   const onSubmit = async e => {
     e.preventDefault()
-    if(formData.search === ''){
-      return setError('search cannot be blank')
+    console.log(formData)
+    if(formData.search === ""){
+      console.log('fail')
+      setError('search cannot be blank', 'red')
+    } else {
+      setFilters(formData)
+      getFilteredQuotes(formData, history)
     }
-
-    setFilters(formData)
-    getFilteredQuotes(formData, history)
   }
 
   return (
