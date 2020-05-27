@@ -41,9 +41,7 @@ router.post('/', async (req, res) => {
 // @desc Login a user
 // @access Public
 router.post('/login', async (req, res) => {
-  
   const { username, password } = req.body
-  // console.log(username, password)
 
   try {
     const user = await User.findByCredentials(username, password)

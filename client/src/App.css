@@ -237,6 +237,10 @@
   justify-content: center;
 }
 
+.no-quotes {
+  text-align: center;
+}
+
 /* QUOTE DISPLAY */
 
 .quote-link {

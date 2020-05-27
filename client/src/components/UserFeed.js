@@ -14,8 +14,9 @@ const UserFeed = ({ quotes, user, filter, search }) => {
   }
 
   if(quotes.length === 0){
-    renderDisplay = <div className="quotes-feed">
+    renderDisplay = <div className="no-quotes">
     <h1>No results</h1>
+    <h1>Add quotes or refine your search</h1>
     </div>
   } else {
     renderDisplay = <div className="quotes-feed">
@@ -28,10 +29,12 @@ const UserFeed = ({ quotes, user, filter, search }) => {
   return (
     <div>
       <h1 className="py-1">Hello {user.username}</h1>
-      <div className="filter-display">
+      {quotes.length > 1 &&
+        <div className="filter-display">
         {filter !== '' && <h3 className="p-1">Current filter = {filterDisplay}</h3>}
         {search !== '' && <h3 className="p-1">Current search = {search}</h3>}
-      </div>
+        </div>
+      }
       <div className="">
         {renderDisplay}
       </div>
