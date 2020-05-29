@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { setFilters } from '../actions/filter'
 import { setError } from '../actions/error'
 import { getFilteredQuotes } from '../actions/quotes'
@@ -11,15 +11,16 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
     filter: '',
     search: ''
   })
+  const dispatch = useDispatch()
 
   const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
 
   const onSubmit = async e => {
     e.preventDefault()
     console.log(formData)
-    if(formData.search === ""){
+    if(formData.search === "" || formData.filter === ""){
       console.log('fail')
-      setError('search cannot be blank')
+      dispatch(setError('Filter and search terms must be filled out'))
     } else {
       setFilters(formData)
       getFilteredQuotes(formData, history)
@@ -33,7 +34,11 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
         <p className="py-1">Hone in on the quotes you're looking for. Select Author, year the quote was made or the body of work it belongs to and then type in your search (Be precise). Finally hit search and view the results.</p>
         <form onSubmit={e => onSubmit(e)} className="search-form mx-1">
           <select className="search-select my-1" name="filter" onChange={e => onChange(e)}>
-            
+            <option
+              value={null}
+            >
+              ???
+            </option>
             <option 
               value="author"
             >
