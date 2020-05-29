@@ -62,7 +62,7 @@ async (dispatch) => {
     console.log(errors[0].message.password)
 
     if(errors) {
-      errors.forEach(error => dispatch(setError(error.message, 'red')))
+      errors.forEach(error => dispatch(setError(error.message)))
     }
     dispatch({
       type: REGISTER_FAIL
@@ -94,7 +94,7 @@ export const login = (username, password) => async (dispatch) => {
     console.log(err.response.data.errors)
 
     if(errors) {
-      errors.forEach(error => dispatch(setError(error.message, 'red')))
+      errors.forEach(error => dispatch(setError(error.message)))
     }
     dispatch({
       type: LOGIN_FAIL

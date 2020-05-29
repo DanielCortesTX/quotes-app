@@ -51,10 +51,7 @@ router.get('/mine', auth, async (req, res) => {
 // @desc Execute search
 // @access Private
 router.get('/:filter/:search', auth, async (req, res) => {
-
   const { filter, search } = req.params
-
-  console.log(req.params.search)
 
   try {
     console.log(req.params.filter, 'pre-search')

@@ -19,7 +19,7 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
     console.log(formData)
     if(formData.search === ""){
       console.log('fail')
-      setError('search cannot be blank', 'red')
+      setError('search cannot be blank')
     } else {
       setFilters(formData)
       getFilteredQuotes(formData, history)
@@ -33,11 +33,7 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
         <p className="py-1">Hone in on the quotes you're looking for. Select Author, year the quote was made or the body of work it belongs to and then type in your search (Be precise). Finally hit search and view the results.</p>
         <form onSubmit={e => onSubmit(e)} className="search-form mx-1">
           <select className="search-select my-1" name="filter" onChange={e => onChange(e)}>
-            <option
-              value={null}
-            >
-              Select
-            </option>
+            
             <option 
               value="author"
             >

@@ -73,7 +73,7 @@ export const addQuote = (formData, history) => async dispatch => {
     console.log(errArray, 'yessssss')
 
     if(errArray.length > 0) {
-      errArray.forEach(error => dispatch(setError(error, 'red')))
+      errArray.forEach(error => dispatch(setError(error)))
     }
   }
 }
