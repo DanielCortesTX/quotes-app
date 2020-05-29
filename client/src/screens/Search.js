@@ -19,8 +19,9 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
     e.preventDefault()
     console.log(formData)
     if(formData.search === "" || formData.filter === ""){
-      console.log('fail')
       dispatch(setError('Filter and search terms must be filled out'))
+    } else if(formData.filter === "dateOfQuote" && typeof(formData.search) !== Number ){
+      dispatch(setError('Search must be a number'))
     } else {
       setFilters(formData)
       getFilteredQuotes(formData, history)
