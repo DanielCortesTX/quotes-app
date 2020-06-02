@@ -135,9 +135,6 @@ export const getFilteredQuotes = ({filter, search}, history) => async dispatch =
 
   try {
     const res = await axios.get(`/api/quotes/${filter}/${search}`, config)
-  
-    console.log('In the action')
-    console.log(filter, search)
 
     dispatch({
       type: GET_QUOTES,

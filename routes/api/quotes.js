@@ -55,7 +55,7 @@ router.get('/:filter/:search', auth, async (req, res) => {
 
   try {
     console.log(req.params.filter, 'pre-search')
-    // Quote.checkSearch(filter, search)
+   
     if(filter === ''){
       throw new Error('Must pick a filter')
     } else if (search === ''){
@@ -63,7 +63,6 @@ router.get('/:filter/:search', auth, async (req, res) => {
     }
 
     const results = await Quote.find({ [filter]: [search], owner: req.user._id })
-    console.log(results)
 
     res.send(results)
   } catch (err) {
