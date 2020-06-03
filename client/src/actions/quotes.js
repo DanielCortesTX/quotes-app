@@ -53,10 +53,6 @@ export const addQuote = (formData, history) => async dispatch => {
       type: ADD_QUOTE,
       payload: res.data
     })
-    dispatch({
-      type: SET_FILTERS,
-      payload: {activeFilter: '', searchField: ''}
-    })
     history.push('/userpage')
   } catch (err) {
     console.log(err)
