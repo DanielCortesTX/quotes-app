@@ -31,7 +31,9 @@ const UserFeed = ({ quotes, user, filter, filters, search }) => {
       <h1 className="py-1">Hello {user.username}</h1>
       {quotes.length > 1 &&
         <div className="filter-display">
-        {filter !== "" || '' && <h3 className="p-1">Current filter = {filterDisplay}</h3>}
+        {/* eslint-disable-next-line */}
+        {filter !== "" || '' && <h3 className="p-1">Current filter = {filterDisplay}</h3>} 
+        {/* eslint-disable-next-line */}
         {search !== "" || '' && <h3 className="p-1">Current search = {search}</h3>}
         </div>
       }
