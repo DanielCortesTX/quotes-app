@@ -39,11 +39,11 @@ const UserPage = ({ getQuotes, quotes, filter, filters, search, getFilteredQuote
 
 UserPage.propTypes = {
   getQuotes: PropTypes.func.isRequired,
-  quotes: PropTypes.object.isRequired,
+  // quotes: PropTypes.object.isRequired,
   filter: PropTypes.string.isRequired,
   search: PropTypes.string.isRequired,
-  getFilteredQuotes: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  getFilteredQuotes: PropTypes.func.isRequired
+  // user: PropTypes.object.isRequired
 }
 
 const mapStateToProps = ({auth, quotes, filters}) => ({
