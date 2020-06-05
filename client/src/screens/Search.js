@@ -17,7 +17,7 @@ const Search = ({ setFilters, getFilteredQuotes, history }) => {
 
   const onSubmit = async e => {
     e.preventDefault()
-    console.log(formData)
+
     if(formData.search === "" || formData.filter === ""){
       dispatch(setError('Filter and search terms must be filled out'))
     } else if(formData.filter === "dateOfQuote" && typeof(formData.search) !== Number ){
