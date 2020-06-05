@@ -41,8 +41,8 @@ const QuoteDisplay = ({match, setActiveQuote, deleteQuote, quote, loading, histo
 QuoteDisplay.propTypes = {
   setActiveQuote: PropTypes.func.isRequired,
   deleteQuote: PropTypes.func.isRequired,
-  quote: PropTypes.object.isRequired,
-  loading: PropTypes.object.isRequired,
+  // quote: PropTypes.object.isRequired,
+  // loading: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = ({quotes}) => ({
