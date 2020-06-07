@@ -9,7 +9,7 @@ const QuoteDisplay = ({match, setActiveQuote, deleteQuote, quote, loading, histo
 
   useEffect(() => {
     setActiveQuote(match.params.id)
-  },[])
+  },[setActiveQuote, match.params.id])
 
   let display
 
