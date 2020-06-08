@@ -15,7 +15,7 @@ const UserPage = ({ getQuotes, quotes, filter, filters, search, getFilteredQuote
     } else {
       getQuotes()
     }
-  }, [])
+  }, [filter, search, getFilteredQuotes, getQuotes])
   let render
   if(quotes && user !== null){
     render = <UserFeed 
