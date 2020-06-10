@@ -54,8 +54,6 @@ router.get('/:filter/:search', auth, async (req, res) => {
   const { filter, search } = req.params
 
   try {
-    console.log(req.params.filter, 'pre-search')
-   
     if(filter === ''){
       throw new Error('Must pick a filter')
     } else if (search === ''){
