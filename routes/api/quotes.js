@@ -136,7 +136,7 @@ router.delete('/:id', auth, async (req, res) => {
     res.send(quotes) 
     // res.send(quote)
   } catch (e) {
-    es.status(400).send(e)
+    res.status(400).send(e)
   }
 })
 
