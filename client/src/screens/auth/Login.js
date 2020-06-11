@@ -26,7 +26,7 @@ const Login = ({ login, isAuthenticated }) => {
 
   return (
     <Fragment>
-      <div className="my-1">
+      <div className="my-3">
         <div className="page p-1">
           <h1 className="py-1">Login</h1>
           <p>Sign in for full experience</p>

@@ -29,7 +29,7 @@ const UserPage = ({ getQuotes, quotes, filter, filters, search, getFilteredQuote
     render = <h1>Sign in to view</h1>
   }
   return (
-    <div className="my-1">
+    <div className="my-3">
       <div className="page p-1">
         {render}
       </div>

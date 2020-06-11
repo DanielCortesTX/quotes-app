@@ -16,7 +16,7 @@ const QuoteDisplay = ({match, setActiveQuote, deleteQuote, quote, loading, histo
   if(!loading || quote === undefined){
     display = <Loading />
   } else {
-    display = <div className="page p-1 quote-specifics">
+    display = <div className="page p-1 my-3 quote-specifics">
       <div>
         <h1 className="display-text">"{quote.text}"</h1>
         <h3 className="display-author py-1">-{quote.author}</h3>

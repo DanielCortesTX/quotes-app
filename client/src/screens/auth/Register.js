@@ -25,7 +25,7 @@ const Register = ({register, isAuthenticated}) => {
   }
   return (
     <Fragment>
-      <div className="my-1">
+      <div className="my-3">
         <div className="page p-1">
           <h1 className="py-1">Register</h1>
           <p>Register for full experience</p>

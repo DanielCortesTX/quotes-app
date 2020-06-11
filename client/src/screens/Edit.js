@@ -23,7 +23,7 @@ const Edit = ({ quote, editQuote, history }) => {
   }
   return (
     <Fragment>
-      <div className="my-1">
+      <div className="my-3">
         <div className="page p-1">
           <h1 className="py-1">Edit a quote</h1>
           <p>Edit your quote here. Text and author are required, but utilize date of quote and body of work for organization!</p>

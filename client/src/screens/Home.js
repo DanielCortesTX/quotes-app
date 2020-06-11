@@ -6,7 +6,7 @@ const Home = () => {
     getQuotes()
   })
   return (
-    <div className="my-1">
+    <div className="my-3">
       <div className="page p-1">
         <h1 className="py-1">Quote me on it!!!!</h1>
         <p>Welcome to "Quote me on it!" And app built to help you jot down meaningfull expressions and such.</p>
