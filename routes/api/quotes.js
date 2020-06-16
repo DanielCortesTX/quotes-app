@@ -18,15 +18,12 @@ router.post('/', auth, async (req, res) => {
     ...req.body,
     owner: req.user._id
   })
-  // const { text, author, dateOfQuote, bodyOfWork } = req.body
 
   try {
-    // const user = await User.findById(req.user.id).select('-password')
-    // const authorSearch = await Author.find({ name: author })
     await quote.save()
     res.status(201).send(quote)
   } catch (e) {
-    console.log(e.message)
+    // console.log(e.message)
     res.status(400).send(e)
     return res.status(401).json({ errors: [ { message: `${e.message}`}]})
   }
@@ -36,8 +33,8 @@ router.post('/', auth, async (req, res) => {
 // @desc Get quotes by logged in user
 // @access Private
 router.get('/mine', auth, async (req, res) => {
-  const match = {}
-  const sort = {}
+  // const match = {}
+  // const sort = {}
 
   try {
     const quotes = await Quote.find({ owner: req.user._id})
@@ -134,7 +131,6 @@ router.delete('/:id', auth, async (req, res) => {
     }
 
     res.send(quotes) 
-    // res.send(quote)
   } catch (e) {
     res.status(400).send(e)
   }
