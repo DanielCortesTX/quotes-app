@@ -6,14 +6,13 @@ const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys')
 const { check, validationResult } = require('express-validator/check')
 const User = require('../../models/User')
-// const { check, validationResult } = require('express-validator/check')
 
 // @route POST api/users
 // @desc Register user
 // @access Public
 router.post('/', async (req, res) => {
   const user = new User(req.body)
-  const { username, password } = req.body
+  const { username } = req.body
 
   try {
     const checkInput = await User.checkRegister(user)
