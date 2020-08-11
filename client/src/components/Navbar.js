@@ -16,8 +16,8 @@ class Navbar extends Component {
     const { isAuthenticated } = this.props.auth
 
     const unlogged = (
-      <ul className="">
-        <li className="">
+      <ul>
+        <li>
           <Link className="" to="/login">Login</Link>
         </li>
         <li className="n">
@@ -27,15 +27,15 @@ class Navbar extends Component {
     )
 
     const loggedIn = (
-      <ul className="">
+      <ul>
         <li>
-          <Link className="" to="/search">{' '}Search</Link>
+          <Link to="/search">{' '}Search</Link>
         </li>
-        <li className="">
-          <Link className="" to="/add">Add</Link>
+        <li>
+          <Link to="/add">Add</Link>
         </li>
-        <li className="">
-          <Link className="" to="/userpage">User page</Link>
+        <li>
+          <Link to="/userpage">User page</Link>
         </li>
         <li>
           <button className="btn-quote" onClick={this.onLogoutClick.bind(this)}>Logout</button>
@@ -46,7 +46,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar-h">
         <div className="nav-link">
-          <Link className="" to="/">Home</Link>  
+          <Link to="/">Home</Link>  
         </div>
         {isAuthenticated ? loggedIn : unlogged} 
       </nav>
