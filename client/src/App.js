@@ -21,8 +21,6 @@ import { loadUser } from './actions/auth'
 import { loadAuthors, getQuotes } from './actions/quotes'
 import setAuthToken from './utils/setAuthToken'
 
-import './styles/style.scss'
-
 if(localStorage.token){
   setAuthToken(localStorage.token)
 }

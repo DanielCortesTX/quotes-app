@@ -1,0 +1,17 @@
+/* USER PAGE */
+
+.user {
+  border: solid 1px black;
+  min-height: 85vh;
+}
+
+.quotes-feed {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.no-quotes {
+  text-align: center;
+}

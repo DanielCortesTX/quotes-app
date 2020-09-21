@@ -77,7 +77,7 @@ UserSchema.statics.findByCredentials = async (username, password) => {
 }
 
 UserSchema.statics.checkRegister = async (user) => {
-  const { username,password } = user
+  const { username, password } = user
   if(password === ''){
     throw new Error('Password cannot be blank')
   } else if (password.length < 6){

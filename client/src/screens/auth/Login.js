@@ -9,6 +9,7 @@ const Login = ({ login, isAuthenticated }) => {
     username: '',
     password: ''
   })
+  console.log(formData)
 
   const { username, password } = formData
 

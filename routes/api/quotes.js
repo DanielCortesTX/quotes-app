@@ -1,14 +1,8 @@
 const express = require('express')
 const auth = require('../../middleware/auth')
 const router = express.Router()
-// const bcrypt = require('bcryptjs')
-// const jwt = require('jsonwebtoken')
 const keys = require('../../config/keys')
-const { check, validationResult } = require('express-validator/check')
-
 const Quote = require('../../models/Quote')
-const User = require('../../models/User')
-const Author = require('../../models/Author')
 
 // @route POST api/quotes
 // @desc Create a quote
@@ -23,7 +17,6 @@ router.post('/', auth, async (req, res) => {
     await quote.save()
     res.status(201).send(quote)
   } catch (e) {
-    // console.log(e.message)
     res.status(400).send(e)
     return res.status(401).json({ errors: [ { message: `${e.message}`}]})
   }
@@ -33,9 +26,6 @@ router.post('/', auth, async (req, res) => {
 // @desc Get quotes by logged in user
 // @access Private
 router.get('/mine', auth, async (req, res) => {
-  // const match = {}
-  // const sort = {}
-
   try {
     const quotes = await Quote.find({ owner: req.user._id})
     res.send(quotes)  
